@@ -16,8 +16,8 @@ Customers who purchase single-ride or full-day passes are referred to as *casual
 Cyclistic has concluded that annual members are much more profitable than casual riders. Although the pricing flexibility helps Cyclistic attract more customers, the company believes that maximizing the number of annual members will be key to future growth.
 As such, the company wants to understand how casual riders and annual members use Cyclistic bikes differently.
 
-## Business Task: Design and develop a new strategy to convert casual riders into annual members.
-
+## Business Task: 
+Develop a new strategy to convert casual riders into annual members:
 1. Understand how annual members and casual riders differ.
 2. Understand why casual riders would buy an annual membership.
 3. How to effectively use digital media to influence casual riders to becoming annual members.
