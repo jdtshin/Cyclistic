@@ -5,9 +5,9 @@ Hello! My name is Justin Shin and in this case study, I will be performing the t
 
 Technologies Used:
 * Microsoft Excel
-..* Microsoft SQL Server
-..* Tableau Public
-..* R
+* Microsoft SQL Server
+* Tableau Public
+* R
 
 *Note: This analysis case study is the capstone project of the Google Data Analytics Professional Certificate, which focuses on the **fictional** bike-share company, Cyclistic.* 
 
