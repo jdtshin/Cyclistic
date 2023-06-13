@@ -8,6 +8,7 @@ Technologies used for this case study:
 * Microsoft Excel
 * Microsoft SQL Server
 * Tableau Public
+* RStudio
 
 For viewing purposes, I have broken up this case study into 7 parts:
 1. **Setting** - To provide background information about the project and the company
