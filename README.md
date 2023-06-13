@@ -3,7 +3,11 @@
 ## Introduction
 Hello! My name is Justin Shin and in this case study, I will be performing the tasks of a data analyst in order to showcase and apply the data analytic skills and knowledge I have learned.
 
-Technologies used for this case study: Microsoft Excel, Microsoft SQL Server, Tableau Public, and RStudio
+Technologies used for this case study: 
+* Microsoft Excel
+* Microsoft SQL Server
+* Tableau Public
+* RStudio
 
 For viewing purposes, I have broken up this case study into 7 parts:
 1. **Setting** - To provide background information about the project and the company
