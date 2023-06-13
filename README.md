@@ -18,7 +18,7 @@ For viewing purposes, I have broken up this case study into 7 parts:
 6. **Visualization** - Creating interactive data visualizations using Tableau Public and RStudio
 7. **Recommendation** - Providing the final conclusion and recommendations based off of the analysis
 
-*Note: This analysis case study is the capstone project for the Google Data Analytics Professional Certificate, which focuses on the **fictional** bike-share company, Cyclistic.* 
+*Note: This analysis case study is one of the capstone project options for the Google Data Analytics Professional Certificate, which focuses on the **fictional** bike-share company, Cyclistic.* 
 
 ## 1. Setting:
 Cyclistic is a bike-share company that features more than 5,800 bicycles and 600 docking stations throughout Chicago. Cyclistic has set itself apart from their competitors by offering a variety of options, including reclining bikes, hand tricycles, and cargo bikes, making bike-share more inclusive to people with disabilities and riders who can't use a standard two-wheeled bike.
