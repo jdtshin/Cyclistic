@@ -1,4 +1,4 @@
-# Cyclistic Case Study Project: How Does a Bike-Share Navigate Speedy Success?
+# Data Analysis Case Study Project: Cyclistic Bike-Share
 
 ## Introduction
 Hello! My name is Justin Shin and in this case study, I will be performing the tasks of a data analyst in order to showcase and apply the data analytic skills and knowledge I have learned.
