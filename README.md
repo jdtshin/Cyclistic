@@ -19,8 +19,10 @@ As such, the company wants to understand how casual riders and annual members us
 ## Business Task: 
 **_Develop a new strategy to convert casual riders into annual members:_**
 1. Understand how annual members and casual riders differ.
-2. Understand why casual riders would buy an annual membership.
-3. How to effectively use digital media to influence casual riders to becoming annual members.
+  a. 
+  b. 
+3. Understand why casual riders would buy an annual membership.
+4. How to effectively use digital media to influence casual riders to becoming annual members.
 
 ## Data Sources Used:
 
