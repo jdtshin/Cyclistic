@@ -12,7 +12,7 @@ Technologies used for this case study:
 
 For simplicity, I have broken up this case study into 7 parts:
 1. **Setting** - To provide background information about the project and the company
-2. **Business Task** - Identifying the business task/problem that needs to be solved and creating guiding questions
+2. **Business Task** - Identifying the business task/problem
 3. **Data Source** - Disclosing the datasets used and where the datasets come from
 4. **Documentation** - To document the process of *data preparation*, *data cleaning*, and *data manipulation* for analysis purposes
 5. **Analysis** - To document data discoveries and insights to address the business task/problem using Microsoft SQL Server and RStudio
