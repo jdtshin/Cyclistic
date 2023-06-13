@@ -17,7 +17,7 @@ Cyclistic has concluded that annual members are much more profitable than casual
 As such, the company wants to understand how casual riders and annual members use Cyclistic bikes differently.
 
 ## Business Task: 
-*_Develop a new strategy to convert casual riders into annual members:*_
+**_Develop a new strategy to convert casual riders into annual members:_**
 1. Understand how annual members and casual riders differ.
 2. Understand why casual riders would buy an annual membership.
 3. How to effectively use digital media to influence casual riders to becoming annual members.
