@@ -7,7 +7,6 @@ Technologies used for this case study:
 * Microsoft Excel
 * Microsoft SQL Server
 * Tableau Public
-* RStudio
 
 For viewing purposes, I have broken up this case study into 7 parts:
 1. **Setting** - To provide background information about the project and the company
@@ -15,7 +14,7 @@ For viewing purposes, I have broken up this case study into 7 parts:
 3. **Data Source** - Disclosing the datasets used and where the datasets come from
 4. **Documentation** - To document the process of *data preparation*, *data cleaning*, and *data manipulation* for analysis purposes
 5. **Analysis** - To document data discoveries and insights to address the business task/problem using Microsoft SQL Server and RStudio
-6. **Visualization** - Creating interactive data visualizations using Tableau Public and RStudio
+6. **Visualization** - Creating interactive data visualizations using Tableau Public
 7. **Recommendation** - Providing the final conclusion and recommendations based off of the analysis
 
 *Note: This analysis case study is one of the capstone project options for the Google Data Analytics Professional Certificate, which focuses on the **fictional** bike-share company, Cyclistic.* 
@@ -54,13 +53,24 @@ The datasets used for this project were provided by **Motivate International Inc
 4. Converted the .CSV files to .XLS workbook files to perform data exploration and cleaning.
 
 ### Data Cleaning:
-1. 
+1. Loaded the .CSV data folder containing all 12 datasets into Microsoft Excel using the **Power Query Editor**.
+2. Performed data cleaning in the Power Query Editor (Removing blank rows, removing duplicates, formatting data types, separating date and time into two distinct columns).
+3. 
+4. Loaded the cleaned dataset into Microsoft Excel to perform data manipulation.
+5. Created a new column to calculate the duration of each ride (end date/time - start date/time).
+6. Created a new column to calculate the day of the week that each ride started using the "=WEEKDAY()" excel function.
 
 
 
 ## 5. Analysis
+### Microsoft SQL Server
+
 
 ## 6. Visualizations
+### Tableau Public
+
+### RStudio
+
 
 ## 7. Recommendations
 
