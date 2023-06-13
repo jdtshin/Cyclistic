@@ -1,7 +1,7 @@
-# Data Analysis Case Study: Cyclistic Bike-Share
+# Data Analysis Case Study Project: Cyclistic Bike-Share
 
 ## Introduction
-Hello! My name is Justin Shin and in this case study, I will be performing the tasks of a data analyst in order to showcase and apply the data analytic skills and knowledge I have learned.
+Hello there! My name is Justin Shin this is my Data Analysis Case Study Project. In this project, I will be performing the tasks of a data analyst in order to showcase and apply the data analysis skills and knowledge I have learned.
 
 Technologies used for this case study: 
 * Microsoft Excel
