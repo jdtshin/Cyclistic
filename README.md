@@ -32,9 +32,9 @@ As such, the company wants to understand how casual riders and annual members us
 4. How to effectively use digital media to influence casual riders to becoming annual members.
 
 ## Data Sources Used:
-The datasets used for this project
+The datasets used for this project were provided by **Motivate International Inc.**. The datasets are public data that are appropriate for the purposes of this case study.
 
-*Note: * 
+*Note: Data Privacy issues prohibit accessing rider's personally identifiable information. As such, I was unable to connect pass purhcases to credit card numbers to determine if casual riders lived in the Cyclistic service area or if they have purchased multiple single passes.* 
 
 ## Documentation
 
