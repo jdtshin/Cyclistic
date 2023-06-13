@@ -54,11 +54,10 @@ The datasets used for this project were provided by **Motivate International Inc
 
 ### Data Cleaning:
 1. Loaded the .CSV data folder containing all 12 datasets into Microsoft Excel using the **Power Query Editor**.
-2. Performed data cleaning in the Power Query Editor (Removing blank rows, removing duplicates, formatting data types, separating date and time into two distinct columns).
-3. 
-4. Loaded the cleaned dataset into Microsoft Excel to perform data manipulation.
-5. Created a new column to calculate the duration of each ride (end date/time - start date/time).
-6. Created a new column to calculate the day of the week that each ride started using the "=WEEKDAY()" excel function.
+2. Performed data cleaning in the Power Query Editor (Removing blank rows, removing duplicates, formatting data types).
+3. Created a new column to calculate the duration of each ride (trip_duration) using Power Query's time subtract function (started_at - ended_at).
+4. Created a working column to use the Excel WEEKDAY() function to determine the day of the week for each ride.
+   Then created a conditional statement using the Excel IFS() function.
 
 
 
