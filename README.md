@@ -20,7 +20,7 @@ For viewing purposes, I have broken up this project into 7 parts:
 
 *Note: This analysis case study is the capstone project for the Google Data Analytics Professional Certificate, which focuses on the **fictional** bike-share company, Cyclistic.* 
 
-## Setting:
+## 1. Setting:
 Cyclistic is a bike-share company that features more than 5,800 bicycles and 600 docking stations throughout Chicago. Cyclistic has set itself apart from their competitors by offering a variety of options, including reclining bikes, hand tricycles, and cargo bikes, making bike-share more inclusive to people with disabilities and riders who can't use a standard two-wheeled bike.
 
 Cyclistic is a bike-share company that features a fleet of 5,824 bicycles that are geotracked and locked into a network of 692 stations across Chicago. The bikes can be unlocked from one station and returned to any other station in the system anytime. 
@@ -33,7 +33,7 @@ Customers who purchase single-ride or full-day passes are referred to as *casual
 Cyclistic has concluded that annual members are much more profitable than casual riders. Although the pricing flexibility helps Cyclistic attract more customers, the company believes that maximizing the number of annual members will be key to future growth.
 As such, the company wants to understand how casual riders and annual members use Cyclistic bikes differently.
 
-## Business Task: 
+## 2. Business Task: 
 **_Develop a new strategy to convert casual riders into annual members:_**
 
 1. Understand how annual members and casual riders differ.
@@ -41,12 +41,12 @@ As such, the company wants to understand how casual riders and annual members us
 4. How to effectively use digital media to influence casual riders to becoming annual members.
 5. Understand who the stakeholders are and who the audience is for this case study.
 
-## Data Source:
+## 3. Data Source:
 The datasets used for this project were provided by **Motivate International Inc.**. The datasets are public data that are appropriate for the purposes of this case study.
 
 *Note: Data Privacy issues prohibit accessing rider's personally identifiable information. As such, I was unable to connect pass purhcases to credit card numbers to determine if casual riders lived in the Cyclistic service area or if they have purchased multiple single passes.* 
 
-## Documentation
+## 4. Documentation
 ### Data Preparation:
 1. Downloaded the datasets for May 3, 2022 to June 8, 2023.
 2. Created a folder to house the files from the dataset using appropriate file-naming conventions.
@@ -58,9 +58,9 @@ The datasets used for this project were provided by **Motivate International Inc
 
 
 
-## Analysis
+## 5. Analysis
 
-## Visualizations
+## 6. Visualizations
 
-## Recommendations
+## 7. Recommendations
 
