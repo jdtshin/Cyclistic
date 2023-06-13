@@ -10,7 +10,7 @@ Technologies used for this case study:
 * Tableau Public
 * RStudio
 
-For viewing purposes, I have broken up this case study into 7 parts:
+For simplicity, I have broken up this case study into 7 parts:
 1. **Setting** - To provide background information about the project and the company
 2. **Business Task** - Identifying the business task/problem that needs to be solved and creating guiding questions
 3. **Data Source** - Disclosing the datasets used and where the datasets come from
