@@ -2,13 +2,11 @@
 
 ## Introduction
 Hello! My name is Justin Shin and in this case study, I will be performing the tasks of a data analyst in order to showcase and apply the data analytic skills and knowledge I have learned.
-
 The technologies I have used for this case study:
 * Microsoft Excel
 * Microsoft SQL Server
 * Tableau Public
 * R
-
 *Note: This analysis case study is the capstone project of the Google Data Analytics Professional Certificate, which focuses on the **fictional** bike-share company, Cyclistic.* 
 
 ## Setting:
