@@ -31,12 +31,22 @@ As such, the company wants to understand how casual riders and annual members us
 3. Understand why casual riders would buy an annual membership.
 4. How to effectively use digital media to influence casual riders to becoming annual members.
 
-## Data Sources Used:
+## Data Source:
 The datasets used for this project were provided by **Motivate International Inc.**. The datasets are public data that are appropriate for the purposes of this case study.
 
 *Note: Data Privacy issues prohibit accessing rider's personally identifiable information. As such, I was unable to connect pass purhcases to credit card numbers to determine if casual riders lived in the Cyclistic service area or if they have purchased multiple single passes.* 
 
 ## Documentation
+### Data Preparation:
+1. Downloaded the datasets for May 3, 2022 to June 8, 2023.
+2. Created a folder to house the files from the dataset using appropriate file-naming conventions.
+3. Created subfolders for the .CSV files in order to have a copy of the original dataset.
+4. Converted the .CSV files to .XLS workbook files to perform data exploration and cleaning.
+
+### Data Cleaning:
+1. 
+
+
 
 ## Analysis
 
