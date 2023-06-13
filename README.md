@@ -7,6 +7,7 @@ The technologies I have used for this case study:
 * Microsoft SQL Server
 * Tableau Public
 * R
+
 *Note: This analysis case study is the capstone project of the Google Data Analytics Professional Certificate, which focuses on the **fictional** bike-share company, Cyclistic.* 
 
 ## Setting:
