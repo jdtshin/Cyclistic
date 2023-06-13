@@ -2,6 +2,7 @@
 
 ## Introduction
 Hello! My name is Justin Shin and in this case study, I will be performing the tasks of a data analyst in order to showcase and apply the data analytic skills and knowledge I have learned.
+
 The technologies I have used for this case study are listed below:
 * Microsoft Excel
 * Microsoft SQL Server
