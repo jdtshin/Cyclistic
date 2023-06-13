@@ -9,6 +9,15 @@ The technologies I have used for this case study are listed below:
 * Tableau Public
 * R
 
+For viewing purposes, I have broken up this project into 7 parts:
+1. **Setting** - To provide background information about the project and the company
+2. **Business Task** - Identifying the business task/problem that needs to be solved and creating guiding questions
+3. **Data Source** - Disclosing the datasets used and where the datasets come from
+4. **Documentation** - To document the process of *data preparation*, *data cleaning*, and *data manipulation* for analysis purposes
+5. **Analysis** - To document data discoveries and insights to address the business task/problem using Microsoft SQL Server and RStudio
+6. **Visualization** - Creating interactive data visualizations using Tableau Public and RStudio
+7. **Recommendation** - Providing the final conclusion and recommendations based off of the analysis
+
 *Note: This analysis case study is the capstone project for the Google Data Analytics Professional Certificate, which focuses on the **fictional** bike-share company, Cyclistic.* 
 
 ## Setting:
@@ -30,6 +39,7 @@ As such, the company wants to understand how casual riders and annual members us
 1. Understand how annual members and casual riders differ.
 3. Understand why casual riders would buy an annual membership.
 4. How to effectively use digital media to influence casual riders to becoming annual members.
+5. Understand who the stakeholders are and who the audience is for this case study.
 
 ## Data Source:
 The datasets used for this project were provided by **Motivate International Inc.**. The datasets are public data that are appropriate for the purposes of this case study.
