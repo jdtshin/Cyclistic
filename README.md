@@ -4,7 +4,7 @@
 Hello! My name is Justin Shin and in this case study, I will be performing the tasks of a data analyst in order to showcase and apply the data analytic skills and knowledge I have learned.
 
 Technologies Used:
-..* Microsoft Excel
+* Microsoft Excel
 ..* Microsoft SQL Server
 ..* Tableau Public
 ..* R
