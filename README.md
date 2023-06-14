@@ -90,11 +90,8 @@ For each .XSL file (12 total):
 
 
 **NOTE: During the data cleaning phase, I used Excel's filter function to search for blank cells, and noticed that the blank cells were located in the columns *start_station_name*, *start_station_id*, *end_station_name*, and *end_station_id*. 
-
 However, each row contained the starting and ending latitudes and longitudes. I attempted to use use Excel's lookup (Xlookup and Vlookup) functions as well as Excel's index and match functions, but noticed that some of the latitudes and longitudes contain more than one station name. 
-
 In other words, the coordinates provided were either not specific enough, or the stations are situated too closely that the coordinates are unable to discern which station is which. 
-
 Without any further information or data, I was unable to determine which station name or station id was associated with the coordinates due to their being more than one station name and id for the provided coordinates. As such, I had no choice but to omit these rows from my data analysis.**
 
 
