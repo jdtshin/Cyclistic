@@ -61,8 +61,8 @@ ROCCC (Reliable, Original, Comprehensive, Current, Cited)
 ### Data Cleaning:
 #### Microsoft Excel
 1. Format:
-....1. Created a custom format for the columns started_at and ended_at -> mm/dd/yyyy h/mm/ss
-....2. 
+...1. Created a custom format for the columns started_at and ended_at -> mm/dd/yyyy h/mm/ss
+...2. 
 
 
 
