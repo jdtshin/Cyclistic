@@ -79,14 +79,13 @@ For each .XSL file (12 total):
 
 8. Used Excel's Proper() function on the columns *start_station_name* and *end_station_name* to ensure proper and consistent formatting.
 
-9. Created a new column, labeled *trip_duration*, to determine the duration of each bike ride -> ended_at - started_at -> formatted to hh:mm:ss.
+9. Used two conditional statements to check that the *end_date* and *end_time* were greater than the *start_date* and *start_time*. Deleted the rows that returned False. *=IF(end_date > start_date, "True", "False"), Filter "False", Delete selected rows*.
 
-10. Created a new column, labeled *day_of_week*, to determine the day of the week for each bike ride -> =Weekday() -> returns a number 1-7 identifying the day of the week of the date.
+10. Created a new column, labeled *trip_duration*, to determine the duration of each bike ride -> ended_at - started_at -> formatted to hh:mm:ss.
 
-11. In a new column, used the conditional statement, =IFS(F2=1, "Sunday", F2=2, "Monday", F2=3, "Tuesday", F2=4, "Wednesday", F2=5, "Thursday", F2=6, "Friday", F2=7, "Saturday"), to change the number value returned by the Weekday() function to the corresponding day name.
- *Note: Could also be done by using Excel's find & select -> replace function.*
+11. Created a new column, labeled *day_of_week*, to determine the day of the week for each bike ride -> =Weekday() -> returns a number 1-7 identifying the day of the week of the date.
 
-
+12. In a new column, used the conditional statement, *=IFS(A2=1, "Sunday", A2=2, "Monday", A2=3, "Tuesday", A2=4, "Wednesday", A2=5, "Thursday", A2=6, "Friday", A2=7, "Saturday")*, to change the number value returned by the Weekday() function to the corresponding day name.
 
 
 **NOTE: During the data cleaning phase, I used Excel's filter function to search for blank cells, and noticed that the blank cells were located in the columns *start_station_name*, *start_station_id*, *end_station_name*, and *end_station_id*. 
