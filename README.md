@@ -59,10 +59,17 @@ ROCCC (Reliable, Original, Comprehensive, Current, Cited)
 4. Converted each .CSV file into an .XSL file to prepare for data cleaning.
 
 ### Data Cleaning:
-#### Microsoft Excel
-1. Format:
-...1. Created a custom format for the columns started_at and ended_at -> mm/dd/yyyy h/mm/ss
-...2. 
+#### Microsoft Excel:
+For each .XSL file (12 total):
+1. Changed the data type to **text** for the columns *ride_id*, *rideable_type*, *start_station_name*, *end_station_name*, and *memeber_casual*. Also changed *start_station_id* and *end_station_id* to text as some station id's included text and numbers together.
+2. Changed the data type to **number** for the columns *start_lat*, *start_lng*, *end_lat*, and *end_Lng*.
+3. Used a custom format for the columns *started_at* and *ended_at* as these columns included both the date and time together -> mm/dd/yyyy h:mm:ss.
+4. Created a new column, labeled *trip_duration*, to determine the duration of each bike ride -> ended_at - started_at -> formatted to hh:mm:ss.
+5. Then, copied and pasted the values only into a new column, removing the column with the calculation.
+6. Created a new column, labeled *day_of_week*, to determine the day of the week for each bike ride -> =Weekday() -> returns a number 1-7 identifying the day of the week of the date.
+7. In a new column, used a conditional statement, **=IFS()**, to change the number value returned by the Weekday() function to the corresponding day -> IFS(F2=1, "Sunday", F2=2, "Monday", ...)
+8. Step 7 could also be done by using Excel's find & replace
+9. Then, copied and pasted the values only into a new column, removing the column with the calculation.
 
 
 
