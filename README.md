@@ -64,27 +64,16 @@ ROCCC (Reliable, Original, Comprehensive, Current, Cited)
 For each .XSL file (12 total):
 
 1. Used Excel's Remove Duplicates function to remove any duplicates.
-
 2. Created four new columns, labeled *start_date*, *end_date*, *start_time*, and *end_time*, to separate the date and time values in both *start_at* and *ended_at* columns.
-
 3. Changed the data type format to **text** for the columns *ride_id*, *rideable_type*, *start_station_name*, *end_station_name*, and *member_casual*. Also changed *start_station_id* and *end_station_id* to text as some station id's included text and numbers together.
-
 4. Changed the data type format to **number** for the columns *start_lat*, *start_lng*, *end_lat*, and *end_Lng*.
-
 5. Changed the data type format to **date** (mm/dd/yyyy) for the columns *start_date* and *end_date*.
-
-6. Changed the data type format to **time** (h:mm:ss AM/PM) for the columns *start_time* and *end_time*.
-
+6. Changed the data type format to **time** (hh:mm:ss AM/PM) for the columns *start_time* and *end_time*.
 7. Used Excel's Trim() function to remove any potential extra spaces on the columns *ride_id*, *rideable_type*, *start_station_name*, *start_station_id*, *end_station_name*, *end_station_id*, and *member_casual*.
-
 8. Used Excel's Proper() function on the columns *start_station_name* and *end_station_name* to ensure proper and consistent formatting.
-
 9. Used two conditional statements to check that the *end_date* and *end_time* were greater than the *start_date* and *start_time*. Deleted the rows that returned False. *=IF(end_date > start_date, "True", "False"), Filter "False", Delete selected rows*.
-
 10. Created a new column, labeled *trip_duration*, to determine the duration of each bike ride -> ended_at - started_at -> formatted to hh:mm:ss.
-
 11. Created a new column, labeled *day_of_week*, to determine the day of the week for each bike ride -> =Weekday() -> returns a number 1-7 identifying the day of the week of the date.
-
 12. In a new column, used the conditional statement, *=IFS(A2=1, "Sunday", A2=2, "Monday", A2=3, "Tuesday", A2=4, "Wednesday", A2=5, "Thursday", A2=6, "Friday", A2=7, "Saturday")*, to change the number value returned by the Weekday() function to the corresponding day name.
 
 
@@ -94,11 +83,6 @@ In other words, the coordinates provided were either not specific enough, or the
 Without any further information or data, I was unable to determine which station name or station id was associated with the coordinates due to their being more than one station name and id for the provided coordinates. As such, I had no choice but to omit these rows from my data analysis.**
 
 
-
-
-
-
-
 *Note: Further data cleaning will be done in SQL and R, as the datasets are too large to clean just with Excel.* 
 
 * Check to see if started_at is greater than ended_at, remove if so
@@ -106,20 +90,12 @@ Without any further information or data, I was unable to determine which station
 * Check to see if I can fill the empty cell (If there is a station_id but no station_name, use the station_id to fill in the station_name) OR Use the Starting lat/long and Ending lat/long
 
 
-
-
-
-
-
-
-#### Power Query (**Failed Attempt**)
+#### Power Query (*Need more experience with Poer Query to get this method to work*)
 1. Loaded the .CSV data folder containing all 12 datasets into Microsoft Excel using the **Power Query Editor**.
 2. Performed data cleaning in the Power Query Editor (Removing blank rows, removing duplicates, formatting data types).
 3. Created a new column to calculate the duration of each ride (trip_duration) using Power Query's time subtract function (ended_at - started_at = trip_duration).
 4. Created a new column to determine the day of the week using Power Query's add column/date/day/day of the week function. Then converted the data type to text and used find and replace to replace the returned values of 1-7 to their corresponding days (1 = Sunday, 2 = Monday, ...).
 7. Created a pivot table using the cleaned data to discover insights.
-
-Explain what went wrong, why it didn't work well
 
 
 #### Microsoft SQL Server
