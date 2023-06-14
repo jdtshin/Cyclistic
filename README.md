@@ -5,6 +5,7 @@
 Hello there! My name is Justin Shin this is my Data Analysis Case Study Project. In this project, I will be performing the tasks of a data analyst in order to showcase and apply the data analysis skills and knowledge I have learned.
 
 Technologies used for this case study: 
+* Microsoft Excel
 * Microsoft SQL Server
 * Tableau Public
 * RStudio
@@ -61,17 +62,45 @@ ROCCC (Reliable, Original, Comprehensive, Current, Cited)
 ### Data Cleaning:
 #### Microsoft Excel:
 For each .XSL file (12 total):
+
 1. Used Excel's Remove Duplicates function to remove any duplicates.
-2. Changed the data type to **text** for the columns *ride_id*, *rideable_type*, *start_station_name*, *end_station_name*, and *memeber_casual*. Also changed *start_station_id* and *end_station_id* to text as some station id's included text and numbers together.
-3. Changed the data type to **number** for the columns *start_lat*, *start_lng*, *end_lat*, and *end_Lng*.
-4. Used a custom format for the columns *started_at* and *ended_at* as these columns included both the date and time together -> mm/dd/yyyy h:mm:ss AM/PM.
-5. Created a new column, labeled *trip_duration*, to determine the duration of each bike ride -> ended_at - started_at -> formatted to hh:mm:ss.
-6. Created a new column, labeled *day_of_week*, to determine the day of the week for each bike ride -> =Weekday() -> returns a number 1-7 identifying the day of the week of the date.
-7. In a new column, used a conditional statement, **=IFS()**, to change the number value returned by the Weekday() function to the corresponding day
 
-=IFS(F2=1, "Sunday", F2=2, "Monday", F2=3, "Tuesday", F2=4, "Wednesday", F2=5, "Thursday", F2=6, "Friday", F2=7, "Saturday")
+2. Created four new columns, labeled *start_date*, *end_date*, *start_time*, and *end_time*, to separate the date and time values in both *start_at* and *ended_at* columns.
 
+3. Changed the data type format to **text** for the columns *ride_id*, *rideable_type*, *start_station_name*, *end_station_name*, and *member_casual*. Also changed *start_station_id* and *end_station_id* to text as some station id's included text and numbers together.
+
+4. Changed the data type format to **number** for the columns *start_lat*, *start_lng*, *end_lat*, and *end_Lng*.
+
+5. Changed the data type format to **date** (mm/dd/yyyy) for the columns *start_date* and *end_date*.
+
+6. Changed the data type format to **time** (h:mm:ss AM/PM) for the columns *start_time* and *end_time*.
+
+7. Used Excel's Trim() function to remove any potential extra spaces on the columns *ride_id*, *rideable_type*, *start_station_name*, *start_station_id*, *end_station_name*, *end_station_id*, and *member_casual*.
+
+8. Used Excel's Proper() function on the columns *start_station_name* and *end_station_name* to ensure proper and consistent formatting.
+
+9. Created a new column, labeled *trip_duration*, to determine the duration of each bike ride -> ended_at - started_at -> formatted to hh:mm:ss.
+
+10. Created a new column, labeled *day_of_week*, to determine the day of the week for each bike ride -> =Weekday() -> returns a number 1-7 identifying the day of the week of the date.
+
+11. In a new column, used the conditional statement, =IFS(F2=1, "Sunday", F2=2, "Monday", F2=3, "Tuesday", F2=4, "Wednesday", F2=5, "Thursday", F2=6, "Friday", F2=7, "Saturday"), to change the number value returned by the Weekday() function to the corresponding day name.
  *Note: Could also be done by using Excel's find & select -> replace function.*
+
+
+
+
+**NOTE: During the data cleaning phase, I used Excel's filter function to search for blank cells, and noticed that the blank cells were located in the columns *start_station_name*, *start_station_id*, *end_station_name*, and *end_station_id*. 
+
+However, each row contained the starting and ending latitudes and longitudes. I attempted to use use Excel's lookup (Xlookup and Vlookup) functions as well as Excel's index and match functions, but noticed that some of the latitudes and longitudes contain more than one station name. 
+
+In other words, the coordinates provided were either not specific enough, or the stations are situated too closely that the coordinates are unable to discern which station is which. 
+
+Without any further information or data, I was unable to determine which station name or station id was associated with the coordinates due to their being more than one station name and id for the provided coordinates. As such, I had no choice but to omit these rows from my data analysis.**
+
+
+
+
+
 
 
 *Note: Further data cleaning will be done in SQL and R, as the datasets are too large to clean just with Excel.* 
@@ -79,8 +108,6 @@ For each .XSL file (12 total):
 * Check to see if started_at is greater than ended_at, remove if so
 * Remove rows with blanks
 * Check to see if I can fill the empty cell (If there is a station_id but no station_name, use the station_id to fill in the station_name) OR Use the Starting lat/long and Ending lat/long
-
-REMOVE REDUNDANT STEPS, STREAMLINE LATER.
 
 
 
