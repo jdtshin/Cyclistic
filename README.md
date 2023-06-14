@@ -54,11 +54,16 @@ The datasets used for this project were provided by **Motivate International Inc
 3. Created subfolders for the files in order to have a copy of the original dataset.
 
 ### Data Cleaning:
+
+#### Microsoft Excel
 1. Loaded the .CSV data folder containing all 12 datasets into Microsoft Excel using the **Power Query Editor**.
-2. Performed data cleaning in the Power Query Editor (Removing blank rows, removing duplicates, formatting data types). --Over 6,000,000 rows of data, ~5,000,000 after cleaning
+2. Performed data cleaning in the Power Query Editor (Removing blank rows, removing duplicates, formatting data types).
 3. Created a new column to calculate the duration of each ride (trip_duration) using Power Query's time subtract function (ended_at - started_at = trip_duration).
 4. Created a new column to determine the day of the week using Power Query's add column/date/day/day of the week function. Then converted the data type to text and used find and replace to replace the returned values of 1-7 to their corresponding days (1 = Sunday, 2 = Monday, ...).
 7. Created a pivot table using the cleaned data to discover insights.
+
+#### Microsoft SQL Server
+1. Imported each month's dataset into SQL Server
 
 ## 5. Analysis
 ### Microsoft SQL Server
