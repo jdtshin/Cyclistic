@@ -71,7 +71,15 @@ For each .XSL file (12 total):
 8. Step 7 could also be done by using Excel's find & select -> replace function.
 9. Then, copied and pasted the values only into a new column, removing the column with the calculation.
 
-*Note: *
+*Note: Further data cleaning will be done in SQL, as the datasets are too large to clean just with Excel.* 
+
+REMOVE REDUNDANT STEPS, STREAMLINE LATER.
+
+
+
+
+
+
 
 
 #### Power Query (**Failed Attempt**)
