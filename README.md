@@ -51,15 +51,14 @@ The datasets used for this project were provided by **Motivate International Inc
 ### Data Preparation:
 1. Downloaded the datasets for May 3, 2022 to June 8, 2023.
 2. Created a folder to house the files from the dataset using appropriate file-naming conventions.
-3. Created subfolders for the .CSV files in order to have a copy of the original dataset.
-4. Converted the .CSV files to .XLS workbook files to perform data exploration and cleaning.
+3. Created subfolders for the files in order to have a copy of the original dataset.
 
 ### Data Cleaning:
 1. Loaded the .CSV data folder containing all 12 datasets into Microsoft Excel using the **Power Query Editor**.
 2. Performed data cleaning in the Power Query Editor (Removing blank rows, removing duplicates, formatting data types). --Over 6,000,000 rows of data, ~5,000,000 after cleaning
 3. Created a new column to calculate the duration of each ride (trip_duration) using Power Query's time subtract function (ended_at - started_at = trip_duration).
 4. Created a new column to determine the day of the week using Power Query's add column/date/day/day of the week function. Then converted the data type to text and used find and replace to replace the returned values of 1-7 to their corresponding days (1 = Sunday, 2 = Monday, ...).
-7. Created a pivot table using the cleaned data to discover insights, as well as to create data visualizations in Microsoft Excel.
+7. Created a pivot table using the cleaned data to discover insights.
 
 ## 5. Analysis
 ### Microsoft SQL Server
