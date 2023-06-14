@@ -5,13 +5,12 @@
 Hello there! My name is Justin Shin this is my Data Analysis Case Study Project. In this project, I will be performing the tasks of a data analyst in order to showcase and apply the data analysis skills and knowledge I have learned.
 
 Technologies used for this case study: 
-* Microsoft Excel
 * Microsoft SQL Server
 * Tableau Public
 * RStudio
 
 For simplicity, I have broken up this case study into 7 parts:
-1. **Setting** - To provide background information about the project and the company
+1. **Scenario** - To provide background information about the project and the company
 2. **Business Task** - Identifying the business task/problem
 3. **Data Source** - Disclosing the datasets used and where the datasets come from
 4. **Documentation** - To document the process of *data preparation*, *data cleaning*, and *data manipulation* for analysis purposes
@@ -21,7 +20,7 @@ For simplicity, I have broken up this case study into 7 parts:
 
 *Note: This analysis case study is one of the capstone project options for the Google Data Analytics Professional Certificate, which focuses on the **fictional** bike-share company, Cyclistic.* 
 
-## 1. Setting:
+## 1. Scenario:
 Cyclistic is a bike-share company that features more than 5,800 bicycles and 600 docking stations throughout Chicago. Cyclistic has set itself apart from their competitors by offering a variety of options, including reclining bikes, hand tricycles, and cargo bikes, making bike-share more inclusive to people with disabilities and riders who can't use a standard two-wheeled bike.
 
 Cyclistic is a bike-share company that features a fleet of 5,824 bicycles that are geotracked and locked into a network of 692 stations across Chicago. The bikes can be unlocked from one station and returned to any other station in the system anytime. 
@@ -47,23 +46,41 @@ The datasets used for this project were provided by **Motivate International Inc
 
 *Note: Data Privacy issues prohibit accessing rider's personally identifiable information. As such, I was unable to connect pass purhcases to credit card numbers to determine if casual riders lived in the Cyclistic service area or if they have purchased multiple single passes.* 
 
+Include the data files, and the structure of the data here
+
+ROCCC (Reliable, Original, Comprehensive, Current, Cited)
+
+
 ## 4. Documentation
 ### Data Preparation:
-1. Downloaded the datasets for May 3, 2022 to June 8, 2023.
+1. Downloaded the datasets for May 3, 2022 to June 8, 2023 from **Motivate International Inc.**.
 2. Created a folder to house the files from the dataset using appropriate file-naming conventions.
 3. Created subfolders for the files in order to have a copy of the original dataset.
+4. Converted each .CSV file into an .XSL file to prepare for data cleaning.
 
 ### Data Cleaning:
-
 #### Microsoft Excel
+1. Format:
+....1. Created a custom format for the columns started_at and ended_at -> mm/dd/yyyy h/mm/ss
+....2. 
+
+
+
+#### Power Query (**Failed Attempt**)
 1. Loaded the .CSV data folder containing all 12 datasets into Microsoft Excel using the **Power Query Editor**.
 2. Performed data cleaning in the Power Query Editor (Removing blank rows, removing duplicates, formatting data types).
 3. Created a new column to calculate the duration of each ride (trip_duration) using Power Query's time subtract function (ended_at - started_at = trip_duration).
 4. Created a new column to determine the day of the week using Power Query's add column/date/day/day of the week function. Then converted the data type to text and used find and replace to replace the returned values of 1-7 to their corresponding days (1 = Sunday, 2 = Monday, ...).
 7. Created a pivot table using the cleaned data to discover insights.
 
+Explain what went wrong, why it didn't work well
+
+
 #### Microsoft SQL Server
 1. Imported each month's dataset into SQL Server
+
+#### RStudio
+1. 
 
 ## 5. Analysis
 ### Microsoft SQL Server
