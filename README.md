@@ -36,7 +36,7 @@ As such, the company wants to understand how casual riders and annual members us
 ## 2. Business Task: 
 **_Develop a new strategy to convert casual riders into annual members:_**
 
-1. Understand how annual members and casual riders differ.
+1. *Understand how annual members and casual riders differ.*
 3. Understand why casual riders would buy an annual membership.
 4. How to effectively use digital media to influence casual riders to becoming annual members.
 5. Understand who the stakeholders are and who the audience is for this case study.
@@ -61,17 +61,24 @@ ROCCC (Reliable, Original, Comprehensive, Current, Cited)
 ### Data Cleaning:
 #### Microsoft Excel:
 For each .XSL file (12 total):
-1. Changed the data type to **text** for the columns *ride_id*, *rideable_type*, *start_station_name*, *end_station_name*, and *memeber_casual*. Also changed *start_station_id* and *end_station_id* to text as some station id's included text and numbers together.
-2. Changed the data type to **number** for the columns *start_lat*, *start_lng*, *end_lat*, and *end_Lng*.
-3. Used a custom format for the columns *started_at* and *ended_at* as these columns included both the date and time together -> mm/dd/yyyy h:mm:ss.
-4. Created a new column, labeled *trip_duration*, to determine the duration of each bike ride -> ended_at - started_at -> formatted to hh:mm:ss.
-5. Then, copied and pasted the values only into a new column, removing the column with the calculation.
+1. Used Excel's Remove Duplicates function to remove any duplicates.
+2. Changed the data type to **text** for the columns *ride_id*, *rideable_type*, *start_station_name*, *end_station_name*, and *memeber_casual*. Also changed *start_station_id* and *end_station_id* to text as some station id's included text and numbers together.
+3. Changed the data type to **number** for the columns *start_lat*, *start_lng*, *end_lat*, and *end_Lng*.
+4. Used a custom format for the columns *started_at* and *ended_at* as these columns included both the date and time together -> mm/dd/yyyy h:mm:ss AM/PM.
+5. Created a new column, labeled *trip_duration*, to determine the duration of each bike ride -> ended_at - started_at -> formatted to hh:mm:ss.
 6. Created a new column, labeled *day_of_week*, to determine the day of the week for each bike ride -> =Weekday() -> returns a number 1-7 identifying the day of the week of the date.
-7. In a new column, used a conditional statement, **=IFS()**, to change the number value returned by the Weekday() function to the corresponding day -> IFS(F2=1, "Sunday", F2=2, "Monday", ...)
-8. Step 7 could also be done by using Excel's find & select -> replace function.
-9. Then, copied and pasted the values only into a new column, removing the column with the calculation.
+7. In a new column, used a conditional statement, **=IFS()**, to change the number value returned by the Weekday() function to the corresponding day
 
-*Note: Further data cleaning will be done in SQL, as the datasets are too large to clean just with Excel.* 
+=IFS(F2=1, "Sunday", F2=2, "Monday", F2=3, "Tuesday", F2=4, "Wednesday", F2=5, "Thursday", F2=6, "Friday", F2=7, "Saturday")
+
+ *Note: Could also be done by using Excel's find & select -> replace function.*
+
+
+*Note: Further data cleaning will be done in SQL and R, as the datasets are too large to clean just with Excel.* 
+
+* Check to see if started_at is greater than ended_at, remove if so
+* Remove rows with blanks
+* Check to see if I can fill the empty cell (If there is a station_id but no station_name, use the station_id to fill in the station_name) OR Use the Starting lat/long and Ending lat/long
 
 REMOVE REDUNDANT STEPS, STREAMLINE LATER.
 
