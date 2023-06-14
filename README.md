@@ -68,9 +68,10 @@ For each .XSL file (12 total):
 5. Then, copied and pasted the values only into a new column, removing the column with the calculation.
 6. Created a new column, labeled *day_of_week*, to determine the day of the week for each bike ride -> =Weekday() -> returns a number 1-7 identifying the day of the week of the date.
 7. In a new column, used a conditional statement, **=IFS()**, to change the number value returned by the Weekday() function to the corresponding day -> IFS(F2=1, "Sunday", F2=2, "Monday", ...)
-8. Step 7 could also be done by using Excel's find & replace
+8. Step 7 could also be done by using Excel's find & select -> replace function.
 9. Then, copied and pasted the values only into a new column, removing the column with the calculation.
 
+*Note: *
 
 
 #### Power Query (**Failed Attempt**)
