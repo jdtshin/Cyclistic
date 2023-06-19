@@ -99,7 +99,6 @@ For each .XSL file (12 total):
 ## 6. Visualizations
 ### Tableau Public
 
-### RStudio
 
 
 ## 7. Recommendations
