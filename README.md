@@ -99,7 +99,12 @@ Without any further information or data, I was unable to determine which station
 
 
 #### Microsoft SQL Server
-1. Imported each month's dataset into SQL Server
+1. Imported each month's dataset into Microsoft SQL Server using the Import and Export Data (64-bit) tool.
+2. Created a new table to hold all 12 months of data in using SQL's CREATE TABLE statement.
+3. Aggregated all 12 data tables using SQL's UNION operator and inserted them into the newly created table using the INSERT INTO statement.
+4. Performed checks to ensure that the data from all 12 months was inserted properly into the new table.
+5. Performed further data cleaning which I was unable to do in Excel due to the size of each dataset.
+6. Deleted rows using SQL's DELETE statement where (1) start_station_name and start_station_id were both blank or null, (2) end_station_name and end_station_id were both blank or null, and (3) start_station_name, end_station_name, start_station_id, and end_station_id were blank.
 
 #### RStudio
 1. 
