@@ -8,13 +8,12 @@ Technologies used for this case study:
 * Microsoft Excel
 * Microsoft SQL Server
 * Tableau Public
-* RStudio
 
 For simplicity, I have broken up this case study into 7 parts:
 1. **Scenario** - To provide background information about the project and the company
 2. **Business Task** - Identifying the business task/problem
 3. **Data Source** - Disclosing the datasets used and where the datasets come from
-4. **Documentation** - To document the process of *data preparation*, *data cleaning*, and *data manipulation* for analysis purposes
+4. **Prepare & Process** - To document the process of data preparation, data cleaning, and data manipulation for analysis purposes
 5. **Analysis** - To document data discoveries and insights to address the business task/problem using Microsoft SQL Server and RStudio
 6. **Visualization** - Creating interactive data visualizations using Tableau Public
 7. **Recommendation** - Providing the final conclusion and recommendations based off of the analysis
@@ -52,14 +51,15 @@ Include the data files, and the structure of the data here
 ROCCC (Reliable, Original, Comprehensive, Current, Cited)
 
 
-## 4. Documentation
-### Data Preparation:
+## 4. Prepare & Process
+
+
+### Data Preparation and Processing:
 1. Downloaded the datasets for May 3, 2022 to June 8, 2023 from **Motivate International Inc.**.
 2. Created a folder to house the files from the dataset using appropriate file-naming conventions.
 3. Created subfolders for the files in order to have a copy of the original dataset.
 4. Converted each .CSV file into an .XSL file to prepare for data cleaning.
 
-### Data Cleaning:
 #### Microsoft Excel:
 For each .XSL file (12 total):
 
@@ -76,42 +76,25 @@ For each .XSL file (12 total):
 11. Created a new column, labeled *day_of_week*, to determine the day of the week for each bike ride -> =Weekday() -> returns a number 1-7 identifying the day of the week of the date.
 12. In a new column, used the conditional statement, *=IFS(A2=1, "Sunday", A2=2, "Monday", A2=3, "Tuesday", A2=4, "Wednesday", A2=5, "Thursday", A2=6, "Friday", A2=7, "Saturday")*, to change the number value returned by the Weekday() function to the corresponding day name.
 
-
-**NOTE: During the data cleaning phase, I used Excel's filter function to search for blank cells, and noticed that the blank cells were located in the columns *start_station_name*, *start_station_id*, *end_station_name*, and *end_station_id*. 
-However, each row contained the starting and ending latitudes and longitudes. I attempted to use use Excel's lookup (Xlookup and Vlookup) functions as well as Excel's index and match functions, but noticed that some of the latitudes and longitudes contain more than one station name. 
-In other words, the coordinates provided were either not specific enough, or the stations are situated too closely that the coordinates are unable to discern which station is which. 
-Without any further information or data, I was unable to determine which station name or station id was associated with the coordinates due to their being more than one station name and id for the provided coordinates. As such, I had no choice but to omit these rows from my data analysis.**
-
-
-*Note: Further data cleaning will be done in SQL and R, as the datasets are too large to clean just with Excel.* 
-
-* Check to see if started_at is greater than ended_at, remove if so
-* Remove rows with blanks
-* Check to see if I can fill the empty cell (If there is a station_id but no station_name, use the station_id to fill in the station_name) OR Use the Starting lat/long and Ending lat/long
-
-
-#### Power Query (*Need more experience with Poer Query to get this method to work*)
-1. Loaded the .CSV data folder containing all 12 datasets into Microsoft Excel using the **Power Query Editor**.
-2. Performed data cleaning in the Power Query Editor (Removing blank rows, removing duplicates, formatting data types).
-3. Created a new column to calculate the duration of each ride (trip_duration) using Power Query's time subtract function (ended_at - started_at = trip_duration).
-4. Created a new column to determine the day of the week using Power Query's add column/date/day/day of the week function. Then converted the data type to text and used find and replace to replace the returned values of 1-7 to their corresponding days (1 = Sunday, 2 = Monday, ...).
-7. Created a pivot table using the cleaned data to discover insights.
-
-
 #### Microsoft SQL Server
-1. Imported each month's dataset into Microsoft SQL Server using the Import and Export Data (64-bit) tool.
-2. Created a new table to hold all 12 months of data in using SQL's CREATE TABLE statement.
+1. Imported the cleaned excel files into Microsoft SQL Server using the Import and Export Data (64-bit) tool.
+2. Created a new table to hold all 12 months of data using SQL's CREATE TABLE statement.
 3. Aggregated all 12 data tables using SQL's UNION operator and inserted them into the newly created table using the INSERT INTO statement.
 4. Performed checks to ensure that the data from all 12 months was inserted properly into the new table.
 5. Performed further data cleaning which I was unable to do in Excel due to the size of each dataset.
 6. Deleted rows using SQL's DELETE statement where (1) start_station_name and start_station_id were both blank or null, (2) end_station_name and end_station_id were both blank or null, and (3) start_station_name, end_station_name, start_station_id, and end_station_id were blank.
 
-#### RStudio
-1. 
 
 ## 5. Analysis
 ### Microsoft SQL Server
-
+#### Annual Members vs. Casual Riders
+1. Total Rides per month
+2. Total Rides per day of the week
+3. Average ride length
+4. Average ride length per day of the week
+5. Time of ride (Morning commute, evening commute, joy/leisure ride?)
+6. Most frequently used stations
+7. Types of bikes used
 
 ## 6. Visualizations
 ### Tableau Public
