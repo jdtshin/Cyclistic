@@ -98,7 +98,7 @@ For each .XSL file (12 total):
 
 ## 6. Visualizations
 ### Tableau Public
-
+https://public.tableau.com/app/profile/justin.shin1499/viz/CyclisticCaseStudy_16873019224940/Dashboard1
 
 
 ## 7. Recommendations
