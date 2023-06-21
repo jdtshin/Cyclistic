@@ -1,5 +1,4 @@
 # Data Analysis Case Study Project: Cyclistic Bike-Share
-## IN PROGRESS
 
 ## Introduction
 Hello there! My name is Justin Shin this is my Data Analysis Case Study Project. In this project, I will be performing the tasks of a data analyst in order to showcase and apply the data analysis skills and knowledge I have learned.
