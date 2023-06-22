@@ -22,6 +22,7 @@ For simplicity, I have broken up this case study into 7 parts:
 *Note: This analysis case study is the capstone project for the Google Data Analytics Professional Certificate, which focuses on the bike-share company, Cyclistic.* 
 
 ## 1. Scenario:
+
 Cyclistic is a bike-share company that features more than 5,800 bicycles and 600 docking stations throughout Chicago. Cyclistic has set itself apart from their competitors by offering a variety of options, including reclining bikes, hand tricycles, and cargo bikes, making bike-share more inclusive to people with disabilities and riders who can't use a standard two-wheeled bike.
 
 Cyclistic is a bike-share company that features a fleet of 5,824 bicycles that are geotracked and locked into a network of 692 stations across Chicago. The bikes can be unlocked from one station and returned to any other station in the system anytime. 
@@ -34,7 +35,10 @@ Customers who purchase single-ride or full-day passes are referred to as *casual
 Cyclistic has concluded that annual members are much more profitable than casual riders. Although the pricing flexibility helps Cyclistic attract more customers, the company believes that maximizing the number of annual members will be key to future growth.
 As such, the company wants to understand how casual riders and annual members use Cyclistic bikes differently.
 
+
+
 ## 2. Business Task: 
+
 **_Develop a new strategy to convert casual riders into annual members:_**
 
 1. *Understand how annual members and casual riders differ.*
@@ -42,7 +46,10 @@ As such, the company wants to understand how casual riders and annual members us
 4. How to effectively use digital media to influence casual riders to becoming annual members.
 5. Understand who the stakeholders are and who the audience is for this case study.
 
+
+
 ## 3. Data Source:
+
 The datasets used for this project were provided by **Motivate International Inc.**. The datasets are public data that are appropriate for the purposes of this case study.
 
 *Note: Data Privacy issues prohibit accessing rider's personally identifiable information. As such, I was unable to connect pass purhcases to credit card numbers to determine if casual riders lived in the Cyclistic service area or if they have purchased multiple single passes.* 
@@ -50,6 +57,7 @@ The datasets used for this project were provided by **Motivate International Inc
 Include the data files, and the structure of the data here
 
 ROCCC (Reliable, Original, Comprehensive, Current, Cited)
+
 
 
 ## 4. Prepare & Process
@@ -79,14 +87,82 @@ For each .XSL file (12 total):
 #### Microsoft SQL Server
 1. Imported the cleaned excel files into Microsoft SQL Server using the Import and Export Data (64-bit) tool.
 2. Created a new table to hold all 12 months of data using SQL's CREATE TABLE statement.
+```sql
+DROP TABLE IF EXISTS BikeShare_Consolidated
+CREATE TABLE BikeShare_Consolidated (
+	ride_id nvarchar(255),
+	rideable_type nvarchar(255),
+	start_date datetime,
+	end_date datetime,
+	day_of_week nvarchar(255),
+	start_time datetime,
+	end_time datetime,
+	trip_duration datetime,
+	start_station_name nvarchar(255),
+	start_station_id nvarchar(255),
+	end_station_name nvarchar(255),
+	end_station_id nvarchar(255),
+	start_lat float,
+	start_lng float,
+	end_lat float,
+	end_lng float,
+	member_casual nvarchar(255)
+)
+```
 3. Aggregated all 12 data tables using SQL's UNION operator and inserted them into the newly created table using the INSERT INTO statement.
-4. Performed checks to ensure that the data from all 12 months was inserted properly into the new table.
-5. Performed further data cleaning which I was unable to do in Excel due to the size of each dataset.
-6. Deleted rows using SQL's DELETE statement where (1) start_station_name and start_station_id were both blank or null, (2) end_station_name and end_station_id were both blank or null, and (3) start_station_name, end_station_name, start_station_id, and end_station_id were blank.
+```sql
+INSERT INTO BikeShare_Consolidated (ride_id, rideable_type, start_date, end_date, day_of_week, start_time, end_time, trip_duration, start_station_name, start_station_id, end_station_name, end_station_id, start_lat, start_lng, end_lat, end_lng, member_casual)
+SELECT * FROM BikeShare..['2022_05$']
+UNION
+SELECT * FROM BikeShare..['2022_06$']
+UNION
+SELECT * FROM BikeShare..['2022_07$']
+UNION
+SELECT * FROM BikeShare..['2022_08$']
+UNION
+SELECT * FROM BikeShare..['2022_09$']
+UNION
+SELECT * FROM BikeShare..['2022_10$']
+UNION
+SELECT * FROM BikeShare..['2022_11$']
+UNION
+SELECT * FROM BikeShare..['2022_12$']
+UNION
+SELECT * FROM BikeShare..['2023_01$']
+UNION
+SELECT * FROM BikeShare..['2023_02$']
+UNION
+SELECT * FROM BikeShare..['2023_03$']
+UNION
+SELECT * FROM BikeShare..['2023_04$']
+UNION
+SELECT * FROM BikeShare..['2023_05$']
 
+```
+4. Performed checks to ensure that the data from all 12 months was inserted properly into the new table.
+5. Deleted rows using SQL's DELETE statement where (1) start_station_name and start_station_id were both blank or null, (2) end_station_name and end_station_id were both blank or null, and (3) start_station_name, end_station_name, start_station_id, and end_station_id were blank.
+```sql
+DELETE 
+FROM BikeShare_Consolidated
+WHERE start_station_name = '' AND start_station_id = '' AND end_station_name = '' AND end_station_id = ''
+```
+
+```sql
+DELETE
+FROM BikeShare_Consolidated
+WHERE start_station_name is NULL OR start_station_name = '' AND start_station_id is NULL OR start_station_id = ''
+```
+
+```sql
+DELETE
+FROM BikeShare_Consolidated
+WHERE end_station_name is NULL OR end_station_name = '' AND end_station_id is NULL OR end_station_id = ''
+```
 
 ## 5. Analysis
+
 ### Microsoft SQL Server
+
 #### Annual Members vs. Casual Riders
 1. Total Rides per month
 ```sql
