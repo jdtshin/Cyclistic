@@ -95,7 +95,8 @@ FROM BikeShare_Consolidated
 WHERE member_casual = 'member' OR member_casual = 'casual'
 GROUP BY DATEPART(month,start_date), DATEPART(year, start_date), member_casual
 ORDER BY
-  CASE
+	DATEPART(year, start_date),
+	CASE
 		WHEN DATENAME(month, start_date) = 'May' THEN 1
 		WHEN DATENAME(month, start_date) = 'June' THEN 2
 		WHEN DATENAME(month, start_date) = 'July' THEN 3
@@ -110,13 +111,116 @@ ORDER BY
 		WHEN DATENAME(month, start_date) = 'April' THEN 12
 	END ASC
 ```
-
 2. Total Rides per day of the week
+```sql
+SELECT day_of_week, COUNT(day_of_week) AS total_rides, member_casual
+FROM BikeShare_Consolidated
+WHERE member_casual = 'casual' or member_casual = 'member'
+GROUP BY day_of_week, member_casual
+ORDER BY 
+	CASE
+		WHEN day_of_week = 'Sunday' THEN 1
+		WHEN day_of_week = 'Monday' THEN 2
+		WHEN day_of_week = 'Tuesday' THEN 3
+		WHEN day_of_week = 'Wednesday' THEN 4
+		WHEN day_of_week = 'Thursday' THEN 5
+		WHEN day_of_week = 'Friday' THEN 6
+		WHEN day_of_week = 'Saturday' THEN 7
+	END ASC
+```
+
 3. Average ride length
+```sql
+SELECT CAST(CAST(AVG(CAST(trip_duration as FLOAT)) AS DATETIME) as TIME) AS avg_ride_length, member_casual
+FROM BikeShare_Consolidated
+WHERE member_casual = 'member' OR member_casual = 'casual'
+GROUP BY member_casual
+```
+
 4. Average ride length per day of the week
+```sql
+SELECT member_casual, CAST(CAST(AVG(CAST(trip_duration as FLOAT)) AS DATETIME) as TIME) AS avg_ride_length_member, day_of_week
+FROM BikeShare_Consolidated
+WHERE member_casual = 'member' OR member_casual = 'casual'
+GROUP BY day_of_week, member_casual
+ORDER BY 
+	CASE
+		WHEN day_of_week = 'Sunday' THEN 1
+		WHEN day_of_week = 'Monday' THEN 2
+		WHEN day_of_week = 'Tuesday' THEN 3
+		WHEN day_of_week = 'Wednesday' THEN 4
+		WHEN day_of_week = 'Thursday' THEN 5
+		WHEN day_of_week = 'Friday' THEN 6
+		WHEN day_of_week = 'Saturday' THEN 7
+	END ASC
+```
+
 5. Time of ride (Morning commute, evening commute, joy/leisure ride?)
+```sql
+SELECT day_of_week, DATEPART(hour, start_time) AS time_of_day, COUNT(*) AS number_of_riders, member_casual
+FROM BikeShare_Consolidated
+WHERE CAST(start_time AS TIME) between '00:00' AND '23:59' AND member_casual = 'member' OR member_casual = 'casual'
+GROUP BY DATEPART(hour, start_time), day_of_week, member_casual
+ORDER BY 
+	DATEPART(hour, start_time),
+	CASE
+		WHEN day_of_week = 'Sunday' THEN 1
+		WHEN day_of_week = 'Monday' THEN 2
+		WHEN day_of_week = 'Tuesday' THEN 3
+		WHEN day_of_week = 'Wednesday' THEN 4
+		WHEN day_of_week = 'Thursday' THEN 5
+		WHEN day_of_week = 'Friday' THEN 6
+		WHEN day_of_week = 'Saturday' THEN 7
+	END ASC
+```
+
 6. Most frequently used stations
+```sql
+SELECT TOP 100 start_station_name, start_lat, start_lng, COUNT(start_station_name) AS total_start, member_casual
+FROM BikeShare_Consolidated
+WHERE member_casual = 'member' OR member_casual = 'casual'
+GROUP BY start_station_name, start_lat, start_lng, member_casual
+ORDER BY COUNT(start_station_name) DESC
+```
+
+```sql
+SELECT TOP 100 end_station_name, end_lat, end_lng, COUNT(end_station_name) AS total_end, member_casual
+FROM BikeShare_Consolidated
+WHERE member_casual = 'member' OR member_casual = 'casual'
+GROUP BY end_station_name, end_lat, end_lng, member_casual
+HAVING COUNT(end_station_name) >= 1000
+ORDER BY COUNT(end_station_name) DESC
+```
 7. Types of bikes used
+```sql
+SELECT rideable_type, COUNT(ride_id) AS total_rides
+FROM BikeShare_Consolidated
+GROUP BY rideable_type
+```
+
+```sql
+SELECT rideable_type, COUNT(ride_id) AS total_rides, member_casual
+FROM BikeShare_Consolidated
+WHERE member_casual = 'member' OR member_casual = 'casual'
+GROUP BY rideable_type, member_casual
+```
+
+```sql
+SELECT DATEPART(minute, trip_duration) AS minute, rideable_type, COUNT(rideable_type) AS total_rides, member_casual, day_of_week
+FROM BikeShare_Consolidated
+WHERE CAST(trip_duration AS TIME) between '00:01:00' AND '00:59:00'
+GROUP BY day_of_week, rideable_type, member_casual, DATEPART(minute, trip_duration)
+ORDER BY DATEPART(minute, trip_duration) DESC, 
+	CASE
+		WHEN day_of_week = 'Sunday' THEN 1
+		WHEN day_of_week = 'Monday' THEN 2
+		WHEN day_of_week = 'Tuesday' THEN 3
+		WHEN day_of_week = 'Wednesday' THEN 4
+		WHEN day_of_week = 'Thursday' THEN 5
+		WHEN day_of_week = 'Friday' THEN 6
+		WHEN day_of_week = 'Saturday' THEN 7
+	END ASC
+```
 
 ## 6. Visualizations
 ### Tableau Public
