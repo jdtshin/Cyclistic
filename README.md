@@ -257,7 +257,7 @@ FROM BikeShare_Consolidated
 WHERE member_casual = 'member' OR member_casual = 'casual'
 GROUP BY member_casual
 ```
-![alt_text]()
+![alt_text](https://github.com/jdtshin/Cyclistic/blob/main/Output/3_AverageRideLength.PNG)
 
 4. Average ride length per day of the week (Annual Members vs. Casual Riders)
 ```sql
@@ -276,7 +276,7 @@ ORDER BY
 		WHEN day_of_week = 'Saturday' THEN 7
 	END ASC
 ```
-![alt_text](https://github.com/jdtshin/Cyclistic/blob/main/Output/3_AverageRideLength.PNG)
+![alt_text](https://github.com/jdtshin/Cyclistic/blob/main/Output/4_AverageRideLengthPerDayOfWeek.PNG)
 
 5. Time of day the bikes are used (Annual Members vs. Casual Riders)
 ```sql
