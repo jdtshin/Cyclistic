@@ -1,9 +1,11 @@
 # Data Analysis Case Study Project: Cyclistic Bike-Share
 
 ## Introduction
-Hello there! My name is Justin Shin this is my Data Analysis Case Study Project. In this project, I will be performing the tasks of a data analyst in order to showcase and apply the data analysis skills and knowledge I have learned.
+Hello there! My name is Justin Shin this is my Data Analysis Case Study Project. In this project, I will be performing the tasks of a junior data analyst in order to showcase and apply the data analysis skills and knowledge I have learned.
 
-Technologies used for this case study: 
+This README file is to provide documentation of my work process throughout the different phases of this project. 
+
+Technologies used for this project: 
 * Microsoft Excel
 * Microsoft SQL Server
 * Tableau Public
@@ -17,7 +19,7 @@ For simplicity, I have broken up this case study into 7 parts:
 6. **Visualization** - Creating interactive data visualizations using Tableau Public
 7. **Recommendation** - Providing the final conclusion and recommendations based off of the analysis
 
-*Note: This analysis case study is one of the capstone project options for the Google Data Analytics Professional Certificate, which focuses on the **fictional** bike-share company, Cyclistic.* 
+*Note: This analysis case study is the capstone project for the Google Data Analytics Professional Certificate, which focuses on the bike-share company, Cyclistic.* 
 
 ## 1. Scenario:
 Cyclistic is a bike-share company that features more than 5,800 bicycles and 600 docking stations throughout Chicago. Cyclistic has set itself apart from their competitors by offering a variety of options, including reclining bikes, hand tricycles, and cargo bikes, making bike-share more inclusive to people with disabilities and riders who can't use a standard two-wheeled bike.
@@ -51,7 +53,6 @@ ROCCC (Reliable, Original, Comprehensive, Current, Cited)
 
 
 ## 4. Prepare & Process
-
 
 ### Data Preparation and Processing:
 1. Downloaded the datasets for May 3, 2022 to June 8, 2023 from **Motivate International Inc.**.
@@ -98,7 +99,9 @@ For each .XSL file (12 total):
 ## 6. Visualizations
 ### Tableau Public
 https://public.tableau.com/app/profile/justin.shin1499/viz/CyclisticCaseStudy_16873019224940/Dashboard1
-
+1. ![alt text][logo]
+2. [logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"
+3. 
 
 ## 7. Recommendations
 
