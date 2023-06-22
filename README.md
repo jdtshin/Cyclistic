@@ -121,7 +121,7 @@ WHERE end_station_name is NULL OR end_station_name = '' AND end_station_id is NU
 
 ### Microsoft SQL Server
 
-1. Total Rides per month (Annual Member vs. Casual Rider)
+1. Total rides per month (Annual Member vs. Casual Rider)
 
 ```sql
 SELECT DATENAME(month, start_date) AS month, DATEPART(year, start_date) AS year, COUNT(*) as total_rides_per_month_member, member_casual
@@ -171,7 +171,7 @@ ORDER BY
 ```
 ![alt_text](https://github.com/jdtshin/Cyclistic/blob/main/Output/1_TotalRidesCasual.PNG)
 
-2. Total Rides per day of the week (Annual Member vs. Casual Rider)
+2. Total rides per day of the week (Annual Member vs. Casual Rider)
 
 ```sql
 SELECT day_of_week, COUNT(*) AS total_rides, member_casual
@@ -211,7 +211,7 @@ ORDER BY
 
 
 
-3. Average ride length (Annual Member vs. Casual Rider)
+3. Average ride duration (Annual Member vs. Casual Rider)
 
 ```sql
 SELECT CAST(CAST(AVG(CAST(trip_duration as FLOAT)) AS DATETIME) as TIME) AS avg_ride_length, member_casual
@@ -229,7 +229,7 @@ GROUP BY member_casual
 ```
 ![alt_text](https://github.com/jdtshin/Cyclistic/blob/main/Output/AvgRideLengthCasual.PNG)
 
-4. Average ride length per day of the week (Annual Member vs. Casual Rider)
+4. Average ride duration per day of the week (Annual Member vs. Casual Rider)
 
 ```sql
 SELECT member_casual, CAST(CAST(AVG(CAST(trip_duration as FLOAT)) AS DATETIME) as TIME) AS avg_ride_length_member, day_of_week
@@ -326,7 +326,7 @@ ORDER BY COUNT(end_station_name) DESC
 ```
 ![alt_text](https://github.com/jdtshin/Cyclistic/blob/main/Output/6_Top10EndCasual.PNG)
 
-7. Types of bikes used (Annual Members vs. Casual Riders)
+7. Types of bikes used most frequently (Annual Members vs. Casual Riders)
 ```sql
 SELECT rideable_type, COUNT(ride_id) AS total_rides
 FROM BikeShare_Consolidated
