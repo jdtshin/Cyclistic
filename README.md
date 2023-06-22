@@ -164,11 +164,13 @@ WHERE end_station_name is NULL OR end_station_name = '' AND end_station_id is NU
 ### Microsoft SQL Server
 
 #### Annual Members vs. Casual Riders
-1. Total Rides per month (Annual Members vs. Casual Riders)
+1. Total Rides per month
+
+Annual Member
 ```sql
 SELECT DATENAME(month, start_date) AS month, DATEPART(year, start_date) AS year, COUNT(*) as total_rides_per_month_member, member_casual
 FROM BikeShare_Consolidated
-WHERE member_casual = 'casual'
+WHERE member_casual = 'member'
 GROUP BY DATEPART(year, start_date), DATENAME(month, start_date), member_casual
 ORDER BY
 	DATEPART(year, start_date),
@@ -189,6 +191,7 @@ ORDER BY
 ```
 ![alt_text](https://github.com/jdtshin/Cyclistic/blob/main/Output/1_TotalRidesMember.PNG)
 
+Casual Rider
 ```sql
 SELECT DATENAME(month, start_date) AS month, DATEPART(year, start_date) AS year, COUNT(*) as total_rides_per_month_member, member_casual
 FROM BikeShare_Consolidated
@@ -197,41 +200,25 @@ GROUP BY DATEPART(year, start_date), DATENAME(month, start_date), member_casual
 ORDER BY
 	DATEPART(year, start_date),
 	CASE
-		WHEN DATENAME(month, start_date) = 'January' THEN 1
-		WHEN DATENAME(month, start_date) = 'February' THEN 2
-		WHEN DATENAME(month, start_date) = 'March' THEN 3
-		WHEN DATENAME(month, start_date) = 'April' THEN 4
-		WHEN DATENAME(month, start_date) = 'May' THEN 5
-		WHEN DATENAME(month, start_date) = 'June' THEN 6
-		WHEN DATENAME(month, start_date) = 'July' THEN 7
-		WHEN DATENAME(month, start_date) = 'August' THEN 8
-		WHEN DATENAME(month, start_date) = 'September' THEN 9
-		WHEN DATENAME(month, start_date) = 'October' THEN 10
-		WHEN DATENAME(month, start_date) = 'November' THEN 11
-		WHEN DATENAME(month, start_date) = 'December' THEN 12
+		WHEN DATENAME(month, start_date) = 'May' THEN 1
+		WHEN DATENAME(month, start_date) = 'June' THEN 2
+		WHEN DATENAME(month, start_date) = 'July' THEN 3
+		WHEN DATENAME(month, start_date) = 'August' THEN 4
+		WHEN DATENAME(month, start_date) = 'September' THEN 5
+		WHEN DATENAME(month, start_date) = 'October' THEN 6
+		WHEN DATENAME(month, start_date) = 'November' THEN 7
+		WHEN DATENAME(month, start_date) = 'December' THEN 8
+		WHEN DATENAME(month, start_date) = 'January' THEN 9
+		WHEN DATENAME(month, start_date) = 'February' THEN 10
+		WHEN DATENAME(month, start_date) = 'March' THEN 11
+		WHEN DATENAME(month, start_date) = 'April' THEN 12
 	END ASC
 ```
 ![alt_text](https://github.com/jdtshin/Cyclistic/blob/main/Output/1_TotalRidesCasual.PNG)
 
 2. Total Rides per day of the week (Annual Members vs. Casual Riders)
-```sql
-SELECT day_of_week, COUNT(*) AS total_rides, member_casual
-FROM BikeShare_Consolidated
-WHERE member_casual = 'casual'
-GROUP BY day_of_week, member_casual
-ORDER BY 
-	CASE
-		WHEN day_of_week = 'Sunday' THEN 1
-		WHEN day_of_week = 'Monday' THEN 2
-		WHEN day_of_week = 'Tuesday' THEN 3
-		WHEN day_of_week = 'Wednesday' THEN 4
-		WHEN day_of_week = 'Thursday' THEN 5
-		WHEN day_of_week = 'Friday' THEN 6
-		WHEN day_of_week = 'Saturday' THEN 7
-	END ASC
-```
-![alt_text](https://github.com/jdtshin/Cyclistic/blob/main/Output/2_TotalRidesPerDayCasual.PNG)
 
+Annual Member
 ```sql
 SELECT day_of_week, COUNT(*) AS total_rides, member_casual
 FROM BikeShare_Consolidated
@@ -250,28 +237,11 @@ ORDER BY
 ```
 ![alt_text](https://github.com/jdtshin/Cyclistic/blob/main/Output/2_TotalRidesPerDayMember.PNG)
 
-3. Average ride length (Annual Members vs. Casual Riders)
+Casual Rider
 ```sql
-SELECT CAST(CAST(AVG(CAST(trip_duration as FLOAT)) AS DATETIME) as TIME) AS avg_ride_length, member_casual
-FROM BikeShare_Consolidated
-WHERE member_casual = 'member'
-GROUP BY member_casual
-```
-![alt_text](https://github.com/jdtshin/Cyclistic/blob/main/Output/AvgRideLengthMember.PNG)
-
-```sql
-SELECT CAST(CAST(AVG(CAST(trip_duration as FLOAT)) AS DATETIME) as TIME) AS avg_ride_length, member_casual
+SELECT day_of_week, COUNT(*) AS total_rides, member_casual
 FROM BikeShare_Consolidated
 WHERE member_casual = 'casual'
-GROUP BY member_casual
-```
-![alt_text](https://github.com/jdtshin/Cyclistic/blob/main/Output/AvgRideLengthCasual.PNG)
-
-4. Average ride length per day of the week (Annual Members vs. Casual Riders)
-```sql
-SELECT member_casual, CAST(CAST(AVG(CAST(trip_duration as FLOAT)) AS DATETIME) as TIME) AS avg_ride_length_member, day_of_week
-FROM BikeShare_Consolidated
-WHERE member_casual = 'member' OR member_casual = 'casual'
 GROUP BY day_of_week, member_casual
 ORDER BY 
 	CASE
@@ -284,7 +254,69 @@ ORDER BY
 		WHEN day_of_week = 'Saturday' THEN 7
 	END ASC
 ```
-![alt_text](https://github.com/jdtshin/Cyclistic/blob/main/Output/4_AverageRideLengthPerDayOfWeek.PNG)
+![alt_text](https://github.com/jdtshin/Cyclistic/blob/main/Output/2_TotalRidesPerDayCasual.PNG)
+
+
+
+3. Average ride length (Annual Members vs. Casual Riders)
+
+Annual Member
+```sql
+SELECT CAST(CAST(AVG(CAST(trip_duration as FLOAT)) AS DATETIME) as TIME) AS avg_ride_length, member_casual
+FROM BikeShare_Consolidated
+WHERE member_casual = 'member'
+GROUP BY member_casual
+```
+![alt_text](https://github.com/jdtshin/Cyclistic/blob/main/Output/AvgRideLengthMember.PNG)
+
+Casual Rider
+```sql
+SELECT CAST(CAST(AVG(CAST(trip_duration as FLOAT)) AS DATETIME) as TIME) AS avg_ride_length, member_casual
+FROM BikeShare_Consolidated
+WHERE member_casual = 'casual'
+GROUP BY member_casual
+```
+![alt_text](https://github.com/jdtshin/Cyclistic/blob/main/Output/AvgRideLengthCasual.PNG)
+
+4. Average ride length per day of the week (Annual Members vs. Casual Riders)
+
+Annual Member
+```sql
+SELECT member_casual, CAST(CAST(AVG(CAST(trip_duration as FLOAT)) AS DATETIME) as TIME) AS avg_ride_length_member, day_of_week
+FROM BikeShare_Consolidated
+WHERE member_casual = 'member'
+GROUP BY day_of_week, member_casual
+ORDER BY 
+	CASE
+		WHEN day_of_week = 'Sunday' THEN 1
+		WHEN day_of_week = 'Monday' THEN 2
+		WHEN day_of_week = 'Tuesday' THEN 3
+		WHEN day_of_week = 'Wednesday' THEN 4
+		WHEN day_of_week = 'Thursday' THEN 5
+		WHEN day_of_week = 'Friday' THEN 6
+		WHEN day_of_week = 'Saturday' THEN 7
+	END ASC
+```
+![alt_text](https://github.com/jdtshin/Cyclistic/blob/main/Output/AvgRideLengthPerDayMember.PNG)
+
+Casual Rider
+```sql
+SELECT member_casual, CAST(CAST(AVG(CAST(trip_duration as FLOAT)) AS DATETIME) as TIME) AS avg_ride_length_member, day_of_week
+FROM BikeShare_Consolidated
+WHERE member_casual = 'casual'
+GROUP BY day_of_week, member_casual
+ORDER BY 
+	CASE
+		WHEN day_of_week = 'Sunday' THEN 1
+		WHEN day_of_week = 'Monday' THEN 2
+		WHEN day_of_week = 'Tuesday' THEN 3
+		WHEN day_of_week = 'Wednesday' THEN 4
+		WHEN day_of_week = 'Thursday' THEN 5
+		WHEN day_of_week = 'Friday' THEN 6
+		WHEN day_of_week = 'Saturday' THEN 7
+	END ASC
+```
+![alt_text](https://github.com/jdtshin/Cyclistic/blob/main/Output/AvgRideLengthPerDayCasual.PNG)
 
 5. Time of day the bikes are used (Annual Members vs. Casual Riders)
 ```sql
