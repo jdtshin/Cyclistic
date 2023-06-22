@@ -254,10 +254,18 @@ ORDER BY
 ```sql
 SELECT CAST(CAST(AVG(CAST(trip_duration as FLOAT)) AS DATETIME) as TIME) AS avg_ride_length, member_casual
 FROM BikeShare_Consolidated
-WHERE member_casual = 'member' OR member_casual = 'casual'
+WHERE member_casual = 'member'
 GROUP BY member_casual
 ```
-![alt_text](https://github.com/jdtshin/Cyclistic/blob/main/Output/3_AverageRideLength.PNG)
+![alt_text](https://github.com/jdtshin/Cyclistic/blob/main/Output/AvgRideLengthMember.PNG)
+
+```sql
+SELECT CAST(CAST(AVG(CAST(trip_duration as FLOAT)) AS DATETIME) as TIME) AS avg_ride_length, member_casual
+FROM BikeShare_Consolidated
+WHERE member_casual = 'casual'
+GROUP BY member_casual
+```
+![alt_text](https://github.com/jdtshin/Cyclistic/blob/main/Output/AvgRideLengthCasual.PNG)
 
 4. Average ride length per day of the week (Annual Members vs. Casual Riders)
 ```sql
