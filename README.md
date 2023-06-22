@@ -17,7 +17,7 @@ For simplicity, I have broken up this case study into 7 parts:
 4. **Prepare & Process** - To document the process of data preparation, data cleaning, and data manipulation for analysis purposes
 5. **Analysis** - To document data discoveries and insights to address the business task/problem using Microsoft SQL Server and RStudio
 6. **Visualization** - Creating interactive data visualizations using Tableau Public
-7. **Recommendation** - Providing the final conclusion and recommendations based off of the analysis
+7. **Insights & Recommendation** - Providing the final conclusion and recommendations based off of the analysis
 
 *Note: This analysis case study is the capstone project for the Google Data Analytics Professional Certificate, which focuses on the bike-share company, Cyclistic.* 
 
@@ -166,27 +166,33 @@ WHERE end_station_name is NULL OR end_station_name = '' AND end_station_id is NU
 #### Annual Members vs. Casual Riders
 1. Total Rides per month (Annual Members vs. Casual Riders)
 ```sql
-SELECT DATENAME(month, start_date) AS month, DATEPART(year, start_date) AS year, COUNT(*) AS total_rides_per_month, member_casual
+SELECT DATENAME(month, start_date) AS month, DATEPART(year, start_date) AS year, COUNT(*) as total_rides_per_month_member, member_casual
 FROM BikeShare_Consolidated
-WHERE member_casual = 'member' OR member_casual = 'casual'
-GROUP BY DATEPART(month,start_date), DATEPART(year, start_date), member_casual
+WHERE member_casual = 'casual'
+GROUP BY DATEPART(year, start_date), member_casual,  DATENAME(month, start_date)
 ORDER BY
 	DATEPART(year, start_date),
 	CASE
-		WHEN DATENAME(month, start_date) = 'May' THEN 1
-		WHEN DATENAME(month, start_date) = 'June' THEN 2
-		WHEN DATENAME(month, start_date) = 'July' THEN 3
-		WHEN DATENAME(month, start_date) = 'August' THEN 4
-		WHEN DATENAME(month, start_date) = 'September' THEN 5
-		WHEN DATENAME(month, start_date) = 'October' THEN 6
-		WHEN DATENAME(month, start_date) = 'November' THEN 7
-		WHEN DATENAME(month, start_date) = 'December' THEN 8
-		WHEN DATENAME(month, start_date) = 'January' THEN 9
-		WHEN DATENAME(month, start_date) = 'February' THEN 10
-		WHEN DATENAME(month, start_date) = 'March' THEN 11
-		WHEN DATENAME(month, start_date) = 'April' THEN 12
+		WHEN DATENAME(month, start_date) = 'January' THEN 1
+		WHEN DATENAME(month, start_date) = 'February' THEN 2
+		WHEN DATENAME(month, start_date) = 'March' THEN 3
+		WHEN DATENAME(month, start_date) = 'April' THEN 4
+		WHEN DATENAME(month, start_date) = 'May' THEN 5
+		WHEN DATENAME(month, start_date) = 'June' THEN 6
+		WHEN DATENAME(month, start_date) = 'July' THEN 7
+		WHEN DATENAME(month, start_date) = 'August' THEN 8
+		WHEN DATENAME(month, start_date) = 'September' THEN 9
+		WHEN DATENAME(month, start_date) = 'October' THEN 10
+		WHEN DATENAME(month, start_date) = 'November' THEN 11
+		WHEN DATENAME(month, start_date) = 'December' THEN 12
 	END ASC
 ```
+Output:
+![alt-text][total_rides_month_member]
+[total_rides_month_member]: C:\Users\jdt_s\OneDrive\Pictures\BikeShare
+
+
+
 2. Total Rides per day of the week (Annual Members vs. Casual Riders)
 ```sql
 SELECT day_of_week, COUNT(*) AS total_rides, member_casual
@@ -204,6 +210,11 @@ ORDER BY
 		WHEN day_of_week = 'Saturday' THEN 7
 	END ASC
 ```
+Output:
+
+
+
+
 
 3. Average ride length (Annual Members vs. Casual Riders)
 ```sql
@@ -212,6 +223,12 @@ FROM BikeShare_Consolidated
 WHERE member_casual = 'member' OR member_casual = 'casual'
 GROUP BY member_casual
 ```
+Output:
+
+
+
+
+
 
 4. Average ride length per day of the week (Annual Members vs. Casual Riders)
 ```sql
@@ -230,6 +247,11 @@ ORDER BY
 		WHEN day_of_week = 'Saturday' THEN 7
 	END ASC
 ```
+Output:
+
+
+
+
 
 5. Time of day the bikes are used (Annual Members vs. Casual Riders)
 ```sql
@@ -249,24 +271,40 @@ ORDER BY
 		WHEN day_of_week = 'Saturday' THEN 7
 	END ASC
 ```
+Output:
+
+
+
+
 
 6. Most frequently used stations (Annual Members vs. Casual Riders)
 ```sql
-SELECT TOP 100 start_station_name, start_lat, start_lng, COUNT(start_station_name) AS total_start, member_casual
+SELECT TOP 10 start_station_name, start_lat, start_lng, COUNT(start_station_name) AS total_start, member_casual
 FROM BikeShare_Consolidated
 WHERE member_casual = 'member' OR member_casual = 'casual'
 GROUP BY start_station_name, start_lat, start_lng, member_casual
 ORDER BY COUNT(start_station_name) DESC
 ```
+Output:
+
+
+
+
+
 
 ```sql
-SELECT TOP 100 end_station_name, end_lat, end_lng, COUNT(end_station_name) AS total_end, member_casual
+SELECT TOP 10 end_station_name, end_lat, end_lng, COUNT(end_station_name) AS total_end, member_casual
 FROM BikeShare_Consolidated
 WHERE member_casual = 'member' OR member_casual = 'casual'
 GROUP BY end_station_name, end_lat, end_lng, member_casual
 HAVING COUNT(end_station_name) >= 1000
 ORDER BY COUNT(end_station_name) DESC
 ```
+Output:
+
+
+
+
 
 7. Types of bikes used (Annual Members vs. Casual Riders)
 ```sql
@@ -274,6 +312,11 @@ SELECT rideable_type, COUNT(ride_id) AS total_rides
 FROM BikeShare_Consolidated
 GROUP BY rideable_type
 ```
+Output:
+
+
+
+
 
 ```sql
 SELECT rideable_type, COUNT(ride_id) AS total_rides, member_casual
@@ -281,6 +324,10 @@ FROM BikeShare_Consolidated
 WHERE member_casual = 'member' OR member_casual = 'casual'
 GROUP BY rideable_type, member_casual
 ```
+Output:
+
+
+
 
 ```sql
 SELECT DATEPART(minute, trip_duration) AS minute, rideable_type, COUNT(rideable_type) AS total_rides, member_casual, day_of_week
@@ -298,10 +345,25 @@ ORDER BY DATEPART(minute, trip_duration) DESC,
 		WHEN day_of_week = 'Saturday' THEN 7
 	END ASC
 ```
+Output:
+
+
+
 
 ## 6. Visualizations
 ### Tableau Public
 Link to the Cyclistic Dashboard created using Tableau Public: https://public.tableau.com/app/profile/justin.shin1499/viz/CyclisticCaseStudy_16873019224940/Dashboard1
 
-## 7. Recommendations
+## 7. Insights & Recommendations
+
+Total Rides per month
+Total Rides per day
+Average Ride Length
+Average Ride Length per day
+Time of day bikes are used
+Most frequently used stations
+Types of bikes used
+
+
+
 
