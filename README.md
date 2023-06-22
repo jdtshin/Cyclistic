@@ -169,7 +169,7 @@ WHERE end_station_name is NULL OR end_station_name = '' AND end_station_id is NU
 SELECT DATENAME(month, start_date) AS month, DATEPART(year, start_date) AS year, COUNT(*) as total_rides_per_month_member, member_casual
 FROM BikeShare_Consolidated
 WHERE member_casual = 'casual'
-GROUP BY DATEPART(year, start_date), member_casual,  DATENAME(month, start_date)
+GROUP BY DATEPART(year, start_date), DATENAME(month, start_date), member_casual
 ORDER BY
 	DATEPART(year, start_date),
 	CASE
@@ -187,19 +187,36 @@ ORDER BY
 		WHEN DATENAME(month, start_date) = 'December' THEN 12
 	END ASC
 ```
-Output:
-![alt-text][total_rides_month_member]
-[total_rides_month_member]: 
 
-![alt-text][total_rides_month_casual]
-[total_rides_month_casual]: 
+```sql
+SELECT DATENAME(month, start_date) AS month, DATEPART(year, start_date) AS year, COUNT(*) as total_rides_per_month_member, member_casual
+FROM BikeShare_Consolidated
+WHERE member_casual = 'member'
+GROUP BY DATEPART(year, start_date), DATENAME(month, start_date), member_casual
+ORDER BY
+	DATEPART(year, start_date),
+	CASE
+		WHEN DATENAME(month, start_date) = 'January' THEN 1
+		WHEN DATENAME(month, start_date) = 'February' THEN 2
+		WHEN DATENAME(month, start_date) = 'March' THEN 3
+		WHEN DATENAME(month, start_date) = 'April' THEN 4
+		WHEN DATENAME(month, start_date) = 'May' THEN 5
+		WHEN DATENAME(month, start_date) = 'June' THEN 6
+		WHEN DATENAME(month, start_date) = 'July' THEN 7
+		WHEN DATENAME(month, start_date) = 'August' THEN 8
+		WHEN DATENAME(month, start_date) = 'September' THEN 9
+		WHEN DATENAME(month, start_date) = 'October' THEN 10
+		WHEN DATENAME(month, start_date) = 'November' THEN 11
+		WHEN DATENAME(month, start_date) = 'December' THEN 12
+	END ASC
+```
 
 
 2. Total Rides per day of the week (Annual Members vs. Casual Riders)
 ```sql
 SELECT day_of_week, COUNT(*) AS total_rides, member_casual
 FROM BikeShare_Consolidated
-WHERE member_casual = 'casual' or member_casual = 'member'
+WHERE member_casual = 'casual'
 GROUP BY day_of_week, member_casual
 ORDER BY 
 	CASE
@@ -212,10 +229,23 @@ ORDER BY
 		WHEN day_of_week = 'Saturday' THEN 7
 	END ASC
 ```
-Output:
 
-
-
+```sql
+SELECT day_of_week, COUNT(*) AS total_rides, member_casual
+FROM BikeShare_Consolidated
+WHERE member_casual = 'member'
+GROUP BY day_of_week, member_casual
+ORDER BY 
+	CASE
+		WHEN day_of_week = 'Sunday' THEN 1
+		WHEN day_of_week = 'Monday' THEN 2
+		WHEN day_of_week = 'Tuesday' THEN 3
+		WHEN day_of_week = 'Wednesday' THEN 4
+		WHEN day_of_week = 'Thursday' THEN 5
+		WHEN day_of_week = 'Friday' THEN 6
+		WHEN day_of_week = 'Saturday' THEN 7
+	END ASC
+```
 
 
 3. Average ride length (Annual Members vs. Casual Riders)
@@ -225,11 +255,6 @@ FROM BikeShare_Consolidated
 WHERE member_casual = 'member' OR member_casual = 'casual'
 GROUP BY member_casual
 ```
-Output:
-
-
-
-
 
 
 4. Average ride length per day of the week (Annual Members vs. Casual Riders)
@@ -249,17 +274,13 @@ ORDER BY
 		WHEN day_of_week = 'Saturday' THEN 7
 	END ASC
 ```
-Output:
-
-
-
 
 
 5. Time of day the bikes are used (Annual Members vs. Casual Riders)
 ```sql
 SELECT day_of_week, DATEPART(hour, start_time) AS time_of_day, COUNT(*) AS number_of_riders, member_casual
 FROM BikeShare_Consolidated
-WHERE CAST(start_time AS TIME) between '00:00' AND '23:59' AND member_casual = 'member' OR member_casual = 'casual'
+WHERE CAST(start_time AS TIME) between '00:00' AND '23:00' AND member_casual = 'member' OR member_casual = 'casual'
 GROUP BY DATEPART(hour, start_time), day_of_week, member_casual
 ORDER BY 
 	DATEPART(hour, start_time),
@@ -273,10 +294,6 @@ ORDER BY
 		WHEN day_of_week = 'Saturday' THEN 7
 	END ASC
 ```
-Output:
-
-
-
 
 
 6. Most frequently used stations (Annual Members vs. Casual Riders)
@@ -287,12 +304,6 @@ WHERE member_casual = 'member' OR member_casual = 'casual'
 GROUP BY start_station_name, start_lat, start_lng, member_casual
 ORDER BY COUNT(start_station_name) DESC
 ```
-Output:
-
-
-
-
-
 
 ```sql
 SELECT TOP 10 end_station_name, end_lat, end_lng, COUNT(end_station_name) AS total_end, member_casual
@@ -302,10 +313,6 @@ GROUP BY end_station_name, end_lat, end_lng, member_casual
 HAVING COUNT(end_station_name) >= 1000
 ORDER BY COUNT(end_station_name) DESC
 ```
-Output:
-
-
-
 
 
 7. Types of bikes used (Annual Members vs. Casual Riders)
@@ -314,11 +321,6 @@ SELECT rideable_type, COUNT(ride_id) AS total_rides
 FROM BikeShare_Consolidated
 GROUP BY rideable_type
 ```
-Output:
-
-
-
-
 
 ```sql
 SELECT rideable_type, COUNT(ride_id) AS total_rides, member_casual
@@ -326,10 +328,6 @@ FROM BikeShare_Consolidated
 WHERE member_casual = 'member' OR member_casual = 'casual'
 GROUP BY rideable_type, member_casual
 ```
-Output:
-
-
-
 
 ```sql
 SELECT DATEPART(minute, trip_duration) AS minute, rideable_type, COUNT(rideable_type) AS total_rides, member_casual, day_of_week
@@ -347,9 +345,6 @@ ORDER BY DATEPART(minute, trip_duration) DESC,
 		WHEN day_of_week = 'Saturday' THEN 7
 	END ASC
 ```
-Output:
-
-
 
 
 ## 6. Visualizations
