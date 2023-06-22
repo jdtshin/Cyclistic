@@ -97,7 +97,7 @@ UNION
 SELECT * FROM BikeShare..['2023_05$']
 
 ```
-4. Performed checks to ensure that the data from all 12 months was inserted properly into the new table.
+4. Performed checks to ensure that the data from all 12 datasets were inserted properly into the new table.
 5. Deleted specific rows using SQL's DELETE statement where (1) start_station_name and start_station_id were both blank or null, (2) end_station_name and end_station_id were both blank or null, and (3) start_station_name, end_station_name, start_station_id, and end_station_id were blank.
 ```sql
 DELETE 
