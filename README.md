@@ -297,20 +297,36 @@ ORDER BY
 
 
 6. Most frequently used stations (Annual Members vs. Casual Riders)
+Top 10 Starting Stations:
 ```sql
 SELECT TOP 10 start_station_name, start_lat, start_lng, COUNT(start_station_name) AS total_start, member_casual
 FROM BikeShare_Consolidated
-WHERE member_casual = 'member' OR member_casual = 'casual'
+WHERE member_casual = 'member'
+GROUP BY start_station_name, start_lat, start_lng, member_casual
+ORDER BY COUNT(start_station_name) DESC
+```
+```sql
+SELECT TOP 10 start_station_name, start_lat, start_lng, COUNT(start_station_name) AS total_start, member_casual
+FROM BikeShare_Consolidated
+WHERE member_casual = 'casual'
 GROUP BY start_station_name, start_lat, start_lng, member_casual
 ORDER BY COUNT(start_station_name) DESC
 ```
 
+
+Top 10 Ending Stations:
 ```sql
 SELECT TOP 10 end_station_name, end_lat, end_lng, COUNT(end_station_name) AS total_end, member_casual
 FROM BikeShare_Consolidated
-WHERE member_casual = 'member' OR member_casual = 'casual'
+WHERE member_casual = 'member'
 GROUP BY end_station_name, end_lat, end_lng, member_casual
-HAVING COUNT(end_station_name) >= 1000
+ORDER BY COUNT(end_station_name) DESC
+```
+```sql
+SELECT TOP 10 end_station_name, end_lat, end_lng, COUNT(end_station_name) AS total_end, member_casual
+FROM BikeShare_Consolidated
+WHERE member_casual = 'casual'
+GROUP BY end_station_name, end_lat, end_lng, member_casual
 ORDER BY COUNT(end_station_name) DESC
 ```
 
