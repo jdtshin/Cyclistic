@@ -1,74 +1,33 @@
 # Data Analysis Case Study Project: Cyclistic Bike-Share
 
 ## Introduction
-Hello there! My name is Justin Shin this is my Data Analysis Case Study Project. In this project, I will be performing the tasks of a junior data analyst in order to showcase and apply the data analysis skills and knowledge I have learned.
+Hello! My name is Justin Shin this is my Data Analysis Case Study Project. 
 
-This README file is to provide documentation of my work process throughout the different phases of this project. 
+This README file is to provide documentation of my work process for the data preparation, processing, and analysis portion of the overall project.
 
-Technologies used for this project: 
+I will be creating a blog post or portfolio website in order to provide a comprehensive and detailed report on the project as a whole. (In Progress)
+
+Technologies used for data preparation, processing, and analysis:
 * Microsoft Excel
 * Microsoft SQL Server
 * Tableau Public
 
-For simplicity, I have broken up this case study into 7 parts:
-1. **Scenario** - To provide background information about the project and the company
-2. **Business Task** - Identifying the business task/problem
-3. **Data Source** - Disclosing the datasets used and where the datasets come from
-4. **Prepare & Process** - To document the process of data preparation, data cleaning, and data manipulation for analysis purposes
-5. **Analysis** - To document data discoveries and insights to address the business task/problem using Microsoft SQL Server and RStudio
-6. **Visualization** - Creating interactive data visualizations using Tableau Public
-7. **Recommendation** - Providing the final conclusion and recommendations based off of the analysis
-
-*Note: This analysis case study is the capstone project for the Google Data Analytics Professional Certificate, which focuses on the bike-share company, Cyclistic.* 
-
-## 1. Scenario:
-
-Cyclistic is a bike-share company that features more than 5,800 bicycles and 600 docking stations throughout Chicago. Cyclistic has set itself apart from their competitors by offering a variety of options, including reclining bikes, hand tricycles, and cargo bikes, making bike-share more inclusive to people with disabilities and riders who can't use a standard two-wheeled bike.
-
-Cyclistic is a bike-share company that features a fleet of 5,824 bicycles that are geotracked and locked into a network of 692+ stations across Chicago. The bikes can be unlocked from one station and returned to any other station in the system anytime. 
-Included among their fleet of bicycles are traditional bikes, reclining bikes, hand tricycles, and cargo bikes. 
-The large variety of the types of bicycles offered has allowed Cyclistic to set itself apart from their competitors by making bike-share more inclusive to people with disabilities and riders who cannot use a standard two-wheeled bicycle.
-
-Cyclistic’s marketing strategy has relied on building general awareness and appealing to broad consumer segments. One approach that helped make these things possible was the flexibility of its pricing plans: **single-ride passes**, **full-day passes**, and **annual memberships**. 
-Customers who purchase single-ride or full-day passes are referred to as *casual riders*, whereas customers who purchase annual memberships are **Cyclistic Members**.
-
-Cyclistic has concluded that annual members are much more profitable than casual riders. Although the pricing flexibility helps Cyclistic attract more customers, the company believes that maximizing the number of annual members will be key to future growth.
-As such, the company wants to understand how casual riders and annual members use Cyclistic bikes differently.
 
 
+## Data Source:
 
-## 2. Business Task: 
+This project uses Cyclistic's historical trip data to analyze and identify trends. The datasets used for this project were provided by **Motivate International Inc.**. The datasets are public data that are appropriate for the purposes of this case study.
 
-**_Develop a new strategy to convert casual riders into annual members:_**
-
-1. *Understand how annual members and casual riders differ.*
-3. Understand why casual riders would buy an annual membership.
-4. How to effectively use digital media to influence casual riders to becoming annual members.
-5. Understand who the stakeholders are and who the audience is for this case study.
+*Note: Data Privacy issues prohibit accessing rider's personally identifiable information. As such, I am unable to connect pass purhcases to credit card numbers to determine if casual riders lived in the Cyclistic service area or if they have purchased multiple single passes.* 
 
 
-
-## 3. Data Source:
-
-The datasets used for this project were provided by **Motivate International Inc.**. The datasets are public data that are appropriate for the purposes of this case study.
-
-*Note: Data Privacy issues prohibit accessing rider's personally identifiable information. As such, I was unable to connect pass purhcases to credit card numbers to determine if casual riders lived in the Cyclistic service area or if they have purchased multiple single passes.* 
-
-Include the data files, and the structure of the data here
-
-ROCCC (Reliable, Original, Comprehensive, Current, Cited)
-
-
-
-## 4. Prepare & Process
-
-### Data Preparation and Processing:
+## Data Preparation and Processing:
 1. Downloaded the datasets for May 3, 2022 to June 8, 2023 from **Motivate International Inc.**.
 2. Created a folder to house the files from the dataset using appropriate file-naming conventions.
 3. Created subfolders for the files in order to have a copy of the original dataset.
 4. Converted each .CSV file into an .XSL file to prepare for data cleaning.
 
-#### Microsoft Excel:
+### Microsoft Excel:
 For each .XSL file (12 total):
 
 1. Used Excel's Remove Duplicates function to remove any duplicates.
@@ -84,7 +43,7 @@ For each .XSL file (12 total):
 11. Created a new column, labeled *day_of_week*, to determine the day of the week for each bike ride -> =Weekday() -> returns a number 1-7 identifying the day of the week of the date.
 12. In a new column, used the conditional statement, *=IFS(A2=1, "Sunday", A2=2, "Monday", A2=3, "Tuesday", A2=4, "Wednesday", A2=5, "Thursday", A2=6, "Friday", A2=7, "Saturday")*, to change the number value returned by the Weekday() function to the corresponding day name.
 
-#### Microsoft SQL Server
+### Microsoft SQL Server
 1. Imported the cleaned excel files into Microsoft SQL Server using the Import and Export Data (64-bit) tool.
 2. Created a new table, named BikeShare_Consolidated, to hold all 12 months of data using SQL's CREATE TABLE statement.
 ```sql
@@ -159,11 +118,10 @@ FROM BikeShare_Consolidated
 WHERE end_station_name is NULL OR end_station_name = '' AND end_station_id is NULL OR end_station_id = ''
 ```
 
-## 5. Analysis
+## Analysis
 
 ### Microsoft SQL Server
 
-#### Annual Members vs. Casual Riders
 1. Total Rides per month
 
 ```sql
@@ -403,15 +361,7 @@ ORDER BY DATEPART(minute, trip_duration) DESC,
 ```
 
 
-## 6. Visualizations
+## Visualizations
 ### Tableau Public
 Link to the Cyclistic Dashboard created using Tableau Public: https://public.tableau.com/app/profile/justin.shin1499/viz/CyclisticCaseStudy_16873019224940/Dashboard1
-
-## 7. Recommendations
- 
-Summer Months
-Weekends
-Digital Marketing
-Electric and Traditional Bikes are most popular
-For members, offer discounts for morning commutes or time-based incentives?
 
