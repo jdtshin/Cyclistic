@@ -3,29 +3,28 @@
 ## Introduction
 Hello! My name is Justin Shin this is my Data Analysis Case Study Project. 
 
-This README file is to provide documentation of my work process for the data preparation, processing, and analysis portion of the overall project.
+This README file is to provide documentation of my work process, as well as a *basic* overview of the steps taken to prepare, process, and analyze the data.
 
-I will be creating a blog post or portfolio website in order to provide a comprehensive and detailed report on the project as a whole. (In Progress)
+For a more detailed and comprehensive report on my data analysis case study project, please *click here*.
 
-Technologies used for data preparation, processing, and analysis:
+*Note: I will be creating a blog post or portfolio website in order to provide a comprehensive and detailed report on the project as a whole. (In Progress)*
+
+Technologies used for data preparation, processing, analysis, and visualization:
 * Microsoft Excel
 * Microsoft SQL Server
 * Tableau Public
 
-
-
 ## Data Source:
 
-This project uses Cyclistic's historical trip data to analyze and identify trends. The datasets used for this project were provided by **Motivate International Inc.**. The datasets are public data that are appropriate for the purposes of this case study.
+This project uses Cyclistic's historical trip data. The datasets used for this project were provided by **Motivate International Inc.**. The datasets are public data that are appropriate for the purposes of this case study. 
 
-*Note: Data Privacy issues prohibit accessing rider's personally identifiable information. As such, I am unable to connect pass purhcases to credit card numbers to determine if casual riders lived in the Cyclistic service area or if they have purchased multiple single passes.* 
-
+*Note: Data Privacy issues prohibit accessing rider's personally identifiable information.*
 
 ## Data Preparation and Processing:
 1. Downloaded the datasets for May 3, 2022 to June 8, 2023 from **Motivate International Inc.**.
 2. Created a folder to house the files from the dataset using appropriate file-naming conventions.
 3. Created subfolders for the files in order to have a copy of the original dataset.
-4. Converted each .CSV file into an .XSL file to prepare for data cleaning.
+4. Converted each .CSV file into an .XSL file to prepare for data cleaning in MS Excel.
 
 ### Microsoft Excel:
 For each .XSL file (12 total):
@@ -122,7 +121,7 @@ WHERE end_station_name is NULL OR end_station_name = '' AND end_station_id is NU
 
 ### Microsoft SQL Server
 
-1. Total Rides per month
+1. Total Rides per month (Annual Member vs. Casual Rider)
 
 ```sql
 SELECT DATENAME(month, start_date) AS month, DATEPART(year, start_date) AS year, COUNT(*) as total_rides_per_month_member, member_casual
@@ -172,7 +171,7 @@ ORDER BY
 ```
 ![alt_text](https://github.com/jdtshin/Cyclistic/blob/main/Output/1_TotalRidesCasual.PNG)
 
-2. Total Rides per day of the week (Annual Members vs. Casual Riders)
+2. Total Rides per day of the week (Annual Member vs. Casual Rider)
 
 ```sql
 SELECT day_of_week, COUNT(*) AS total_rides, member_casual
@@ -212,7 +211,7 @@ ORDER BY
 
 
 
-3. Average ride length (Annual Members vs. Casual Riders)
+3. Average ride length (Annual Member vs. Casual Rider)
 
 ```sql
 SELECT CAST(CAST(AVG(CAST(trip_duration as FLOAT)) AS DATETIME) as TIME) AS avg_ride_length, member_casual
@@ -230,7 +229,7 @@ GROUP BY member_casual
 ```
 ![alt_text](https://github.com/jdtshin/Cyclistic/blob/main/Output/AvgRideLengthCasual.PNG)
 
-4. Average ride length per day of the week (Annual Members vs. Casual Riders)
+4. Average ride length per day of the week (Annual Member vs. Casual Rider)
 
 ```sql
 SELECT member_casual, CAST(CAST(AVG(CAST(trip_duration as FLOAT)) AS DATETIME) as TIME) AS avg_ride_length_member, day_of_week
@@ -268,7 +267,7 @@ ORDER BY
 ```
 ![alt_text](https://github.com/jdtshin/Cyclistic/blob/main/Output/AvgRideLengthPerDayCasual.PNG)
 
-5. Time of day the bikes are used (Annual Members vs. Casual Riders)
+5. Time of day the bikes are used (Annual Member vs. Casual Rider)
 ```sql
 SELECT day_of_week, DATEPART(hour, start_time) AS time_of_day, COUNT(*) AS number_of_riders, member_casual
 FROM BikeShare_Consolidated
@@ -287,7 +286,7 @@ ORDER BY
 	END ASC
 ```
 
-6. Most frequently used stations (Annual Members vs. Casual Riders)
+6. Most frequently used stations (Annual Member vs. Casual Rider)
 
 Top 10 Starting Stations:
 ```sql
@@ -359,7 +358,6 @@ ORDER BY DATEPART(minute, trip_duration) DESC,
 		WHEN day_of_week = 'Saturday' THEN 7
 	END ASC
 ```
-
 
 ## Visualizations
 ### Tableau Public
