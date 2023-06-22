@@ -330,6 +330,7 @@ ORDER BY
 ```
 
 6. Most frequently used stations (Annual Members vs. Casual Riders)
+
 Top 10 Starting Stations:
 ```sql
 SELECT TOP 10 start_station_name, start_lat, start_lng, COUNT(start_station_name) AS total_start, member_casual
