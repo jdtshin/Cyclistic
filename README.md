@@ -25,7 +25,7 @@ For simplicity, I have broken up this case study into 7 parts:
 
 Cyclistic is a bike-share company that features more than 5,800 bicycles and 600 docking stations throughout Chicago. Cyclistic has set itself apart from their competitors by offering a variety of options, including reclining bikes, hand tricycles, and cargo bikes, making bike-share more inclusive to people with disabilities and riders who can't use a standard two-wheeled bike.
 
-Cyclistic is a bike-share company that features a fleet of 5,824 bicycles that are geotracked and locked into a network of 692 stations across Chicago. The bikes can be unlocked from one station and returned to any other station in the system anytime. 
+Cyclistic is a bike-share company that features a fleet of 5,824 bicycles that are geotracked and locked into a network of 692+ stations across Chicago. The bikes can be unlocked from one station and returned to any other station in the system anytime. 
 Included among their fleet of bicycles are traditional bikes, reclining bikes, hand tricycles, and cargo bikes. 
 The large variety of the types of bicycles offered has allowed Cyclistic to set itself apart from their competitors by making bike-share more inclusive to people with disabilities and riders who cannot use a standard two-wheeled bicycle.
 
@@ -86,7 +86,7 @@ For each .XSL file (12 total):
 
 #### Microsoft SQL Server
 1. Imported the cleaned excel files into Microsoft SQL Server using the Import and Export Data (64-bit) tool.
-2. Created a new table to hold all 12 months of data using SQL's CREATE TABLE statement.
+2. Created a new table, named BikeShare_Consolidated, to hold all 12 months of data using SQL's CREATE TABLE statement.
 ```sql
 DROP TABLE IF EXISTS BikeShare_Consolidated
 CREATE TABLE BikeShare_Consolidated (
@@ -140,7 +140,7 @@ SELECT * FROM BikeShare..['2023_05$']
 
 ```
 4. Performed checks to ensure that the data from all 12 months was inserted properly into the new table.
-5. Deleted rows using SQL's DELETE statement where (1) start_station_name and start_station_id were both blank or null, (2) end_station_name and end_station_id were both blank or null, and (3) start_station_name, end_station_name, start_station_id, and end_station_id were blank.
+5. Deleted specific rows using SQL's DELETE statement where (1) start_station_name and start_station_id were both blank or null, (2) end_station_name and end_station_id were both blank or null, and (3) start_station_name, end_station_name, start_station_id, and end_station_id were blank.
 ```sql
 DELETE 
 FROM BikeShare_Consolidated
@@ -164,7 +164,7 @@ WHERE end_station_name is NULL OR end_station_name = '' AND end_station_id is NU
 ### Microsoft SQL Server
 
 #### Annual Members vs. Casual Riders
-1. Total Rides per month
+1. Total Rides per month (Annual Members vs. Casual Riders)
 ```sql
 SELECT DATENAME(month, start_date) AS month, DATEPART(year, start_date) AS year, COUNT(*) AS total_rides_per_month, member_casual
 FROM BikeShare_Consolidated
@@ -187,7 +187,7 @@ ORDER BY
 		WHEN DATENAME(month, start_date) = 'April' THEN 12
 	END ASC
 ```
-2. Total Rides per day of the week
+2. Total Rides per day of the week (Annual Members vs. Casual Riders)
 ```sql
 SELECT day_of_week, COUNT(*) AS total_rides, member_casual
 FROM BikeShare_Consolidated
@@ -205,7 +205,7 @@ ORDER BY
 	END ASC
 ```
 
-3. Average ride length
+3. Average ride length (Annual Members vs. Casual Riders)
 ```sql
 SELECT CAST(CAST(AVG(CAST(trip_duration as FLOAT)) AS DATETIME) as TIME) AS avg_ride_length, member_casual
 FROM BikeShare_Consolidated
@@ -213,7 +213,7 @@ WHERE member_casual = 'member' OR member_casual = 'casual'
 GROUP BY member_casual
 ```
 
-4. Average ride length per day of the week
+4. Average ride length per day of the week (Annual Members vs. Casual Riders)
 ```sql
 SELECT member_casual, CAST(CAST(AVG(CAST(trip_duration as FLOAT)) AS DATETIME) as TIME) AS avg_ride_length_member, day_of_week
 FROM BikeShare_Consolidated
@@ -231,7 +231,7 @@ ORDER BY
 	END ASC
 ```
 
-5. Time of ride (Morning commute, evening commute, joy/leisure ride?)
+5. Time of day the bikes are used (Annual Members vs. Casual Riders)
 ```sql
 SELECT day_of_week, DATEPART(hour, start_time) AS time_of_day, COUNT(*) AS number_of_riders, member_casual
 FROM BikeShare_Consolidated
@@ -250,7 +250,7 @@ ORDER BY
 	END ASC
 ```
 
-6. Most frequently used stations
+6. Most frequently used stations (Annual Members vs. Casual Riders)
 ```sql
 SELECT TOP 100 start_station_name, start_lat, start_lng, COUNT(start_station_name) AS total_start, member_casual
 FROM BikeShare_Consolidated
@@ -267,7 +267,8 @@ GROUP BY end_station_name, end_lat, end_lng, member_casual
 HAVING COUNT(end_station_name) >= 1000
 ORDER BY COUNT(end_station_name) DESC
 ```
-7. Types of bikes used
+
+7. Types of bikes used (Annual Members vs. Casual Riders)
 ```sql
 SELECT rideable_type, COUNT(ride_id) AS total_rides
 FROM BikeShare_Consolidated
@@ -301,9 +302,6 @@ ORDER BY DATEPART(minute, trip_duration) DESC,
 ## 6. Visualizations
 ### Tableau Public
 https://public.tableau.com/app/profile/justin.shin1499/viz/CyclisticCaseStudy_16873019224940/Dashboard1
-1. ![alt text][logo]
-2. [logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"
-3. 
 
 ## 7. Recommendations
 
