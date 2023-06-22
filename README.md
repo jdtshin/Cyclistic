@@ -187,6 +187,8 @@ ORDER BY
 		WHEN DATENAME(month, start_date) = 'December' THEN 12
 	END ASC
 ```
+Output: ![alt text][1_member]
+[1_member]: https://github.com/jdtshin/Cyclistic/blob/main/Output/1_TotalRidesMember.PNG
 
 ```sql
 SELECT DATENAME(month, start_date) AS month, DATEPART(year, start_date) AS year, COUNT(*) as total_rides_per_month_member, member_casual
@@ -210,7 +212,7 @@ ORDER BY
 		WHEN DATENAME(month, start_date) = 'December' THEN 12
 	END ASC
 ```
-
+Output: 
 
 2. Total Rides per day of the week (Annual Members vs. Casual Riders)
 ```sql
