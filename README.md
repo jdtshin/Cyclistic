@@ -155,18 +155,18 @@ GROUP BY DATEPART(year, start_date), DATENAME(month, start_date), member_casual
 ORDER BY
 	DATEPART(year, start_date),
 	CASE
-		WHEN DATENAME(month, start_date) = 'May' THEN 1
-		WHEN DATENAME(month, start_date) = 'June' THEN 2
-		WHEN DATENAME(month, start_date) = 'July' THEN 3
-		WHEN DATENAME(month, start_date) = 'August' THEN 4
-		WHEN DATENAME(month, start_date) = 'September' THEN 5
-		WHEN DATENAME(month, start_date) = 'October' THEN 6
-		WHEN DATENAME(month, start_date) = 'November' THEN 7
-		WHEN DATENAME(month, start_date) = 'December' THEN 8
-		WHEN DATENAME(month, start_date) = 'January' THEN 9
-		WHEN DATENAME(month, start_date) = 'February' THEN 10
-		WHEN DATENAME(month, start_date) = 'March' THEN 11
-		WHEN DATENAME(month, start_date) = 'April' THEN 12
+		WHEN DATENAME(month, start_date) = 'January' THEN 1
+		WHEN DATENAME(month, start_date) = 'February' THEN 2
+		WHEN DATENAME(month, start_date) = 'March' THEN 3
+		WHEN DATENAME(month, start_date) = 'April' THEN 4
+		WHEN DATENAME(month, start_date) = 'May' THEN 5
+		WHEN DATENAME(month, start_date) = 'June' THEN 6
+		WHEN DATENAME(month, start_date) = 'July' THEN 7
+		WHEN DATENAME(month, start_date) = 'August' THEN 8
+		WHEN DATENAME(month, start_date) = 'September' THEN 9
+		WHEN DATENAME(month, start_date) = 'October' THEN 10
+		WHEN DATENAME(month, start_date) = 'November' THEN 11
+		WHEN DATENAME(month, start_date) = 'December' THEN 12
 	END ASC
 ```
 ![alt_text](https://github.com/jdtshin/Cyclistic/blob/main/Output/1_TotalRidesCasual.PNG)
