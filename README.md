@@ -188,8 +188,7 @@ ORDER BY
 	END ASC
 ```
 Output: 
-![alt text][1_member]
-[1_member]: https://github.com/jdtshin/Cyclistic/blob/main/Output/1_TotalRidesMember.PNG "Total Rides -  Member"
+![alt_text](https://github.com/jdtshin/Cyclistic/blob/main/Output/1_TotalRidesMember.PNG)
 
 ```sql
 SELECT DATENAME(month, start_date) AS month, DATEPART(year, start_date) AS year, COUNT(*) as total_rides_per_month_member, member_casual
