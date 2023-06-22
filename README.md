@@ -409,5 +409,7 @@ Link to the Cyclistic Dashboard created using Tableau Public: https://public.tab
 
 ## 7. Recommendations
  
-
+Summer Months
+Weekends
+Digital Marketing 
 
