@@ -113,7 +113,7 @@ ORDER BY
 ```
 2. Total Rides per day of the week
 ```sql
-SELECT day_of_week, COUNT(day_of_week) AS total_rides, member_casual
+SELECT day_of_week, COUNT(*) AS total_rides, member_casual
 FROM BikeShare_Consolidated
 WHERE member_casual = 'casual' or member_casual = 'member'
 GROUP BY day_of_week, member_casual
