@@ -267,7 +267,7 @@ ORDER BY
 ```
 ![alt_text](https://github.com/jdtshin/Cyclistic/blob/main/Output/AvgRideLengthPerDayCasual.PNG)
 
-5. Time of day the bikes are used (Annual Member vs. Casual Rider)
+5. Time and Day the bikes are used (Annual Member vs. Casual Rider)
 ```sql
 SELECT day_of_week, DATEPART(hour, start_time) AS time_of_day, COUNT(*) AS number_of_riders, member_casual
 FROM BikeShare_Consolidated
