@@ -301,7 +301,7 @@ ORDER BY DATEPART(minute, trip_duration) DESC,
 
 ## 6. Visualizations
 ### Tableau Public
-https://public.tableau.com/app/profile/justin.shin1499/viz/CyclisticCaseStudy_16873019224940/Dashboard1
+Link to the Cyclistic Dashboard created using Tableau Public: https://public.tableau.com/app/profile/justin.shin1499/viz/CyclisticCaseStudy_16873019224940/Dashboard1
 
 ## 7. Recommendations
 
