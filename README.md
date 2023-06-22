@@ -17,7 +17,7 @@ For simplicity, I have broken up this case study into 7 parts:
 4. **Prepare & Process** - To document the process of data preparation, data cleaning, and data manipulation for analysis purposes
 5. **Analysis** - To document data discoveries and insights to address the business task/problem using Microsoft SQL Server and RStudio
 6. **Visualization** - Creating interactive data visualizations using Tableau Public
-7. **Insights & Recommendation** - Providing the final conclusion and recommendations based off of the analysis
+7. **Recommendation** - Providing the final conclusion and recommendations based off of the analysis
 
 *Note: This analysis case study is the capstone project for the Google Data Analytics Professional Certificate, which focuses on the bike-share company, Cyclistic.* 
 
@@ -189,8 +189,10 @@ ORDER BY
 ```
 Output:
 ![alt-text][total_rides_month_member]
-[total_rides_month_member]: C:\Users\jdt_s\OneDrive\Pictures\BikeShare\TotalRidesCasual.PNG
+[total_rides_month_member]: 
 
+![alt-text][total_rides_month_casual]
+[total_rides_month_casual]: 
 
 
 2. Total Rides per day of the week (Annual Members vs. Casual Riders)
@@ -354,16 +356,7 @@ Output:
 ### Tableau Public
 Link to the Cyclistic Dashboard created using Tableau Public: https://public.tableau.com/app/profile/justin.shin1499/viz/CyclisticCaseStudy_16873019224940/Dashboard1
 
-## 7. Insights & Recommendations
-
-Total Rides per month
-Total Rides per day
-Average Ride Length
-Average Ride Length per day
-Time of day bikes are used
-Most frequently used stations
-Types of bikes used
-
-
+## 7. Recommendations
+ 
 
 
