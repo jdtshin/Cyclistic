@@ -411,5 +411,7 @@ Link to the Cyclistic Dashboard created using Tableau Public: https://public.tab
  
 Summer Months
 Weekends
-Digital Marketing 
+Digital Marketing
+Electric and Traditional Bikes are most popular
+For members, offer discounts for morning commutes or time-based incentives?
 
