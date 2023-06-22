@@ -189,7 +189,7 @@ ORDER BY
 ```
 Output:
 ![alt-text][total_rides_month_member]
-[total_rides_month_member]: C:\Users\jdt_s\OneDrive\Pictures\BikeShare
+[total_rides_month_member]: C:\Users\jdt_s\OneDrive\Pictures\BikeShare\TotalRidesCasual.PNG
 
 
 
