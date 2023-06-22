@@ -187,7 +187,6 @@ ORDER BY
 		WHEN DATENAME(month, start_date) = 'December' THEN 12
 	END ASC
 ```
-Output: 
 ![alt_text](https://github.com/jdtshin/Cyclistic/blob/main/Output/1_TotalRidesMember.PNG)
 
 ```sql
@@ -212,7 +211,7 @@ ORDER BY
 		WHEN DATENAME(month, start_date) = 'December' THEN 12
 	END ASC
 ```
-Output: 
+![alt_text](https://github.com/jdtshin/Cyclistic/blob/main/Output/1_TotalRidesCasual.PNG)
 
 2. Total Rides per day of the week (Annual Members vs. Casual Riders)
 ```sql
@@ -231,6 +230,7 @@ ORDER BY
 		WHEN day_of_week = 'Saturday' THEN 7
 	END ASC
 ```
+![alt_text](https://github.com/jdtshin/Cyclistic/blob/main/Output/2_TotalRidesPerDayCasual.PNG)
 
 ```sql
 SELECT day_of_week, COUNT(*) AS total_rides, member_casual
@@ -248,7 +248,7 @@ ORDER BY
 		WHEN day_of_week = 'Saturday' THEN 7
 	END ASC
 ```
-
+![alt_text](https://github.com/jdtshin/Cyclistic/blob/main/Output/2_TotalRidesPerDayMember.PNG)
 
 3. Average ride length (Annual Members vs. Casual Riders)
 ```sql
@@ -257,7 +257,7 @@ FROM BikeShare_Consolidated
 WHERE member_casual = 'member' OR member_casual = 'casual'
 GROUP BY member_casual
 ```
-
+![alt_text]()
 
 4. Average ride length per day of the week (Annual Members vs. Casual Riders)
 ```sql
@@ -276,7 +276,7 @@ ORDER BY
 		WHEN day_of_week = 'Saturday' THEN 7
 	END ASC
 ```
-
+![alt_text](https://github.com/jdtshin/Cyclistic/blob/main/Output/3_AverageRideLength.PNG)
 
 5. Time of day the bikes are used (Annual Members vs. Casual Riders)
 ```sql
@@ -297,7 +297,6 @@ ORDER BY
 	END ASC
 ```
 
-
 6. Most frequently used stations (Annual Members vs. Casual Riders)
 Top 10 Starting Stations:
 ```sql
@@ -307,6 +306,8 @@ WHERE member_casual = 'member'
 GROUP BY start_station_name, start_lat, start_lng, member_casual
 ORDER BY COUNT(start_station_name) DESC
 ```
+![alt_text](https://github.com/jdtshin/Cyclistic/blob/main/Output/6_Top10StartMember.PNG)
+
 ```sql
 SELECT TOP 10 start_station_name, start_lat, start_lng, COUNT(start_station_name) AS total_start, member_casual
 FROM BikeShare_Consolidated
@@ -314,7 +315,7 @@ WHERE member_casual = 'casual'
 GROUP BY start_station_name, start_lat, start_lng, member_casual
 ORDER BY COUNT(start_station_name) DESC
 ```
-
+![alt_text](https://github.com/jdtshin/Cyclistic/blob/main/Output/6_Top10StartCasual.PNG)
 
 Top 10 Ending Stations:
 ```sql
@@ -324,6 +325,8 @@ WHERE member_casual = 'member'
 GROUP BY end_station_name, end_lat, end_lng, member_casual
 ORDER BY COUNT(end_station_name) DESC
 ```
+![alt_text](https://github.com/jdtshin/Cyclistic/blob/main/Output/6_Top10EndMember.PNG)
+
 ```sql
 SELECT TOP 10 end_station_name, end_lat, end_lng, COUNT(end_station_name) AS total_end, member_casual
 FROM BikeShare_Consolidated
@@ -331,7 +334,7 @@ WHERE member_casual = 'casual'
 GROUP BY end_station_name, end_lat, end_lng, member_casual
 ORDER BY COUNT(end_station_name) DESC
 ```
-
+![alt_text](https://github.com/jdtshin/Cyclistic/blob/main/Output/6_Top10EndCasual.PNG)
 
 7. Types of bikes used (Annual Members vs. Casual Riders)
 ```sql
@@ -339,6 +342,7 @@ SELECT rideable_type, COUNT(ride_id) AS total_rides
 FROM BikeShare_Consolidated
 GROUP BY rideable_type
 ```
+![alt_text](https://github.com/jdtshin/Cyclistic/blob/main/Output/7_BikeTypeUsed.PNG)
 
 ```sql
 SELECT rideable_type, COUNT(ride_id) AS total_rides, member_casual
@@ -346,6 +350,7 @@ FROM BikeShare_Consolidated
 WHERE member_casual = 'member' OR member_casual = 'casual'
 GROUP BY rideable_type, member_casual
 ```
+![alt_text](https://github.com/jdtshin/Cyclistic/blob/main/Output/7_BikeTypeUsedMC.PNG)
 
 ```sql
 SELECT DATEPART(minute, trip_duration) AS minute, rideable_type, COUNT(rideable_type) AS total_rides, member_casual, day_of_week
