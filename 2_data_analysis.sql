@@ -12,6 +12,11 @@ SELECT COUNT(*) as total_rides_member_2023
 FROM Bike_Consolidated
 WHERE member_casual = 'member' AND DATEPART(year, start_date) = '2023'
 
+--SELECT DATEPART(year, start_date) as year, COUNT(*) as total_rides_member
+--FROM Bike_Consolidated
+--WHERE member_casual = 'member'
+--GROUP BY DATEPART(year, start_date)
+
 ----Year: Casual Riders
 SELECT COUNT(*) as total_rides_casual_2022
 FROM Bike_Consolidated
@@ -21,6 +26,10 @@ SELECT COUNT(*) as total_rides_casual_2023
 FROM Bike_Consolidated
 WHERE member_casual = 'casual' AND DATEPART(year, start_date) = '2023'
 
+--SELECT DATEPART(year, start_date) as year, COUNT(*) as total_rides_casual
+--FROM Bike_Consolidated
+--WHERE member_casual = 'casual'
+--GROUP BY DATEPART(year, start_date)
 
 --=================================================================================
 ----Month: Annual Members
@@ -107,6 +116,49 @@ ORDER BY
 	END ASC
 
 
+--SELECT DATEPART(year, start_date) as year, DATENAME(month, start_date) as month, COUNT(*) as total_rides_per_month_member_2022
+--FROM Bike_Consolidated
+--WHERE member_casual = 'member'
+--GROUP BY DATEPART(year, start_date), DATENAME(month, start_date)
+--ORDER BY
+--	DATEPART(year, start_date),
+--	CASE
+--		WHEN DATENAME(month, start_date) = 'January' THEN 1
+--		WHEN DATENAME(month, start_date) = 'February' THEN 2
+--		WHEN DATENAME(month, start_date) = 'March' THEN 3
+--		WHEN DATENAME(month, start_date) = 'April' THEN 4
+--		WHEN DATENAME(month, start_date) = 'May' THEN 5
+--		WHEN DATENAME(month, start_date) = 'June' THEN 6
+--		WHEN DATENAME(month, start_date) = 'July' THEN 7
+--		WHEN DATENAME(month, start_date) = 'August' THEN 8
+--		WHEN DATENAME(month, start_date) = 'September' THEN 9
+--		WHEN DATENAME(month, start_date) = 'October' THEN 10
+--		WHEN DATENAME(month, start_date) = 'November' THEN 11
+--		WHEN DATENAME(month, start_date) = 'December' THEN 12
+--	END ASC
+
+--SELECT DATEPART(year, start_date) as year, DATENAME(month, start_date) as month, COUNT(*) as total_rides_per_month_member_2022
+--FROM Bike_Consolidated
+--WHERE member_casual = 'casual'
+--GROUP BY DATEPART(year, start_date), DATENAME(month, start_date)
+--ORDER BY
+--	DATEPART(year, start_date),
+--	CASE
+--		WHEN DATENAME(month, start_date) = 'January' THEN 1
+--		WHEN DATENAME(month, start_date) = 'February' THEN 2
+--		WHEN DATENAME(month, start_date) = 'March' THEN 3
+--		WHEN DATENAME(month, start_date) = 'April' THEN 4
+--		WHEN DATENAME(month, start_date) = 'May' THEN 5
+--		WHEN DATENAME(month, start_date) = 'June' THEN 6
+--		WHEN DATENAME(month, start_date) = 'July' THEN 7
+--		WHEN DATENAME(month, start_date) = 'August' THEN 8
+--		WHEN DATENAME(month, start_date) = 'September' THEN 9
+--		WHEN DATENAME(month, start_date) = 'October' THEN 10
+--		WHEN DATENAME(month, start_date) = 'November' THEN 11
+--		WHEN DATENAME(month, start_date) = 'December' THEN 12
+--	END ASC
+
+
 --=================================================================================
 ----Day of the week: Annual Members
 SELECT day_of_week, COUNT(*) as total_rides_per_day_member_2022
@@ -170,6 +222,40 @@ ORDER BY
 		WHEN day_of_week = 'Friday' THEN 6
 		WHEN day_of_week = 'Saturday' THEN 7
 	END ASC
+
+
+SELECT DATEPART(year, start_date) as year, day_of_week, COUNT(*) as total_rides_per_day_casual_2023
+FROM Bike_Consolidated
+WHERE member_casual = 'member'
+GROUP BY DATEPART(year, start_date), day_of_week
+ORDER BY 
+	DATEPART(year, start_date),
+	CASE
+		WHEN day_of_week = 'Sunday' THEN 1
+		WHEN day_of_week = 'Monday' THEN 2
+		WHEN day_of_week = 'Tuesday' THEN 3
+		WHEN day_of_week = 'Wednesday' THEN 4
+		WHEN day_of_week = 'Thursday' THEN 5
+		WHEN day_of_week = 'Friday' THEN 6
+		WHEN day_of_week = 'Saturday' THEN 7
+	END ASC
+
+SELECT DATEPART(year, start_date) as year, day_of_week, COUNT(*) as total_rides_per_day_casual_2023
+FROM Bike_Consolidated
+WHERE member_casual = 'casual'
+GROUP BY DATEPART(year, start_date), day_of_week
+ORDER BY 
+	DATEPART(year, start_date),
+	CASE
+		WHEN day_of_week = 'Sunday' THEN 1
+		WHEN day_of_week = 'Monday' THEN 2
+		WHEN day_of_week = 'Tuesday' THEN 3
+		WHEN day_of_week = 'Wednesday' THEN 4
+		WHEN day_of_week = 'Thursday' THEN 5
+		WHEN day_of_week = 'Friday' THEN 6
+		WHEN day_of_week = 'Saturday' THEN 7
+	END ASC
+
 
 
 --=================================================================================
