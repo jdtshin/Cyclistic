@@ -3,11 +3,10 @@
 ## Introduction
 Hello! My name is Justin Shin this is my Data Analysis Case Study Project. 
 
+Link to Medium Post:
+Link to Tableau Dashboard: 
+
 This README file is to provide documentation of my work process, as well as a *basic* overview of the steps taken to prepare, process, and analyze the data.
-
-For a more detailed and comprehensive report on my data analysis case study project, please *click here*.
-
-*Note: I will be creating a blog post or portfolio website in order to provide a comprehensive and detailed report on the project as a whole. (In Progress)*
 
 Technologies used for data preparation, processing, analysis, and visualization:
 * Microsoft Excel
@@ -44,19 +43,7 @@ For each .XSL file (12 total):
 
 ### Microsoft SQL Server
 1. Imported the cleaned excel files into Microsoft SQL Server using the Import and Export Data (64-bit) tool.
-2. Created a new table, named BikeShare_Consolidated, to hold all 12 months of data using SQL's CREATE TABLE statement.
-
-3. Aggregated all 12 data tables using SQL's UNION operator and inserted them into the newly created table using the INSERT INTO statement.
-
-4. Performed checks to ensure that the data from all 12 datasets were inserted properly into the new table.
-5. Deleted specific rows using SQL's DELETE statement where (1) start_station_name and start_station_id were both blank or null, (2) end_station_name and end_station_id were both blank or null, and (3) start_station_name, end_station_name, start_station_id, and end_station_id were blank.
-
-## Analysis
-
-### Microsoft SQL Server
-
-
-## Visualizations
-### Tableau Public
-Link to the Cyclistic Dashboard created using Tableau Public: https://public.tableau.com/app/profile/justin.shin1499/viz/CyclisticCaseStudy_16873019224940/Dashboard1
+2. Created two new table, named Bike_Consolidated and Bike_Lookup, to hold all datasets from 2022 and 2023.
+3. Aggregated and inserted all datasets into the newly created tables.
+4. Performed further data cleaning which I was unable to do in Excel.
 
