@@ -3,7 +3,7 @@
 ## Introduction
 Hello! My name is Justin Shin this is my Data Analysis Case Study Project. 
 
-Link to Medium Post: https://medium.com/@jdt_shin/cyclistic-case-study-how-does-a-bike-share-navigate-speedy-success-16d6b29e5b9b
+Link to Medium Post: [click here](https://medium.com/@jdt_shin/cyclistic-case-study-how-does-a-bike-share-navigate-speedy-success-16d6b29e5b9b)
 Link to Tableau Dashboard: 
 
 This README file is to provide documentation of my work process, as well as a *basic* overview of the steps taken to prepare, process, and analyze the data.
