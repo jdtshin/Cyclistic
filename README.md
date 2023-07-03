@@ -14,7 +14,7 @@ Technologies used for data preparation, processing, analysis, and visualization:
 * Microsoft SQL Server
 * Tableau Public
 
-### Note: The files SQLQuery 1-3 are my sql queries for my updated database after I normalized my data tables.
+### *Note: The files SQLQuery 1-3 are my sql queries for my updated database after I normalized my data tables.*
 
 ## Data Source:
 
