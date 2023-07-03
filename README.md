@@ -14,6 +14,8 @@ Technologies used for data preparation, processing, analysis, and visualization:
 * Microsoft SQL Server
 * Tableau Public
 
+###Note: The files SQLQuery 1-3 are my sql queries for my updated database after I normalized my data tables.
+
 ## Data Source:
 
 This project uses Cyclistic's historical trip data. The datasets used for this project were provided by **Motivate International Inc.**. The datasets are public data that are appropriate for the purposes of this case study. 
